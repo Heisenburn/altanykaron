@@ -1,0 +1,38 @@
+{
+    "altanyData": [
+        {
+            "nazwa": "altana ogrodowa a1",
+            "url": "altana-ogrodowa-a1",
+            "cena": 1500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "nazwa": "altana ogrodowa a2",
+            "url": "altana-ogrodowa-a2",
+            "cena": 3500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        }
+    ]
+}
