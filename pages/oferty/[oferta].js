@@ -3,19 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/layout";
 import altanyData from "../../data.json";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { parse } from "querystring";
 
 export default function Page({ dataFromStaticProps }) {
-  // const router = useRouter();
-  // const { asPath } = router;
-
-  // const altanaNameFromUrl = asPath.split("/")[2].split("-").join(" ");
-  // const matchedAltanaFromJSON = altanyData.find((item) => {
-  //   return item.nazwa === altanaNameFromUrl;
-  // });
-
   return (
     <>
       <Head>
@@ -50,7 +39,7 @@ export async function getStaticProps() {
 export async function getStaticPaths() {
   const paths = altanyData["altanyData"].map((altana) => ({
     params: {
-      oferta: altana.url,
+      oferta: altana.nazwa.toLowerCase().replace(/\s+/g, "-"),
     },
   }));
 

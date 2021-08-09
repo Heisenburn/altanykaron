@@ -1,17 +1,16 @@
-import { Navigation } from "./nav";
-import Container from "./container";
+import { Navigation } from "../styledComponents/nav";
+import Container from "../styledComponents/container";
+
+import theme from "../styledComponents/theme";
+import { ThemeProvider } from "styled-components";
 export default function Layout({ children, home }) {
   return (
-    <div>
-      {home ? (
-        <Navigation>
-          <Container> nawigacja home </Container>
-        </Navigation>
-      ) : (
+    <ThemeProvider theme={theme}>
+      {!home ? (
         <Navigation>
           <Container>nawigacja ogolna</Container>
         </Navigation>
-      )}
+      ) : null}
       {children}
       <footer>
         <a
@@ -22,6 +21,6 @@ export default function Layout({ children, home }) {
           Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
-    </div>
+    </ThemeProvider>
   );
 }
