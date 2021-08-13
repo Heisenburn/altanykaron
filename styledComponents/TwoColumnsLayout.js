@@ -17,11 +17,6 @@ const TwoColumnsLayout = styled.div`
     height: 920px;
   }
 
-  .imageWrapper {
-    position: relative;
-    height: 100% !important;
-  }
-
   #heroDescription {
     background-color: ${({ theme }) => theme.brownLight};
     color: white;

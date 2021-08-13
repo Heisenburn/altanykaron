@@ -11,19 +11,19 @@ import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
 import { useEffect } from "react";
 export default function Home({ dataFromStaticProps }) {
-  const handleScroll = () => {
-    window.addEventListener("scroll", () => {
-      let scrollTop = document.documentElement.scrollTop;
-      document.getElementById("test").style.width = 100 + scrollTop / 5 + "%";
-    });
-  };
+  // const handleScroll = () => {
+  //   window.addEventListener("scroll", () => {
+  //     let scrollTop = document.documentElement.scrollTop;
+  //     document.getElementById("test").style.width = 100 + scrollTop / 5 + "%";
+  //   });
+  // };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
-    }
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     window.addEventListener("scroll", handleScroll);
+  //   }
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <Layout home>
@@ -32,6 +32,7 @@ export default function Home({ dataFromStaticProps }) {
           <div className="column">
             <div className="logo">
               <Image
+                quality={1}
                 src="/images/logo.svg"
                 width={250}
                 height={50}
@@ -42,6 +43,7 @@ export default function Home({ dataFromStaticProps }) {
 
             <div className="imageWrapper">
               <Image
+                quality={1}
                 id="test"
                 alt=""
                 src={IMG_6697}
@@ -92,6 +94,7 @@ export default function Home({ dataFromStaticProps }) {
           <div className="column">
             <div className="imageWrapper">
               <Image
+                quality={1}
                 alt=""
                 src={IMG_6448}
                 layout="fill"
@@ -101,39 +104,141 @@ export default function Home({ dataFromStaticProps }) {
             </div>
           </div>
         </TwoColumnsLayout>
-        <h2 id="ofertaIntro">OFERTA</h2>
+        <h3 id="ofertaIntro">OFERTA</h3>
 
-        {/* 
-tu problemy w konsoli zobacz
-        <ul>
-          {dataFromStaticProps["altanyData"].map((item) => {
-            return (
-              <li key={item.url}>
-                <p key={item.nazwa}>{item.nazwa} - </p>
-                <Link
-                  key={item.url + item.nazwa}
-                  href={
-                    "oferty/" + item.nazwa.toLowerCase().replace(/\s+/g, "-")
-                  }
-                >
-                  url
-                </Link>
-              </li>
-            );
-          })}
-        </ul> */}
+        <Listing>
+          <Container>
+            {/* TODO! tu problemy w konsoli zobacz */}
+            <ul>
+              {dataFromStaticProps["altanyData"].map((item, index) => {
+                return index < 6 ? (
+                  <li key={item.url}>
+                    <div className="imageWrapper">
+                      <Image
+                        quality={1}
+                        src={IMG_6448}
+                        width={307}
+                        height={270}
+                        layout="responsive"
+                        alt={`zdjecie oferty: ${item.name}`}
+                      />
+                    </div>
+                    <div className="listingItem-data">
+                      <h3 key={item.name}>{item.name} - </h3>
+                      <p>{item.shortDescription}</p>
+                      <p>
+                        <strong>{item.price} zł</strong>
+                      </p>
+                      {/* tu sie upewnic czy link taki sam serwer i klient */}
+
+                      <Button className="priceButton">
+                        <Link
+                          key={item.url + item.name}
+                          href={
+                            "oferty/" +
+                            item.name.toLowerCase().replace(/\s+/g, "-")
+                          }
+                        >
+                          WIĘCEJ
+                        </Link>
+                      </Button>
+                    </div>
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </Container>
+          <div className="triangle"></div>
+        </Listing>
       </HomeContainer>
     </Layout>
   );
 }
-
 export async function getStaticProps() {
   return {
     props: { dataFromStaticProps: altanyData }, // will be passed to the page component as props
   };
 }
 
+const Listing = styled.div`
+  padding: 134px 0;
+  background-color: ${({ theme }) => theme.gray};
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  .triangle {
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 230vh 500vw;
+    border-color: transparent transparent #57423f2e transparent;
+    position: absolute;
+    left: -400vw;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  li {
+    background: white;
+    margin: 52px 98px;
+    z-index: 1;
+    position: relative;
+
+    display: flex;
+
+    .imageWrapper {
+      width: 307px;
+      height: 270px !important;
+      & > div {
+        width: 307px;
+        height: 100%;
+      }
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .listingItem-data {
+      width: 100%;
+      padding-left: 38px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      h3 {
+        margin-top: 23px;
+      }
+    }
+
+    .priceButton {
+      background-color: ${({ theme }) => theme.blue};
+      width: 146px;
+      height: 50px;
+      position: absolute;
+      bottom: 23px;
+      right: 38px;
+
+      a {
+        text-decoration: none;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+`;
+
 const HomeContainer = styled.div`
+  .imageWrapper {
+    position: relative;
+    height: 100% !important;
+  }
+
   #ofertaIntro {
     color: white;
     background-color: ${({ theme }) => theme.brown};

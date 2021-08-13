@@ -13,7 +13,7 @@ export default function Page({ dataFromStaticProps }) {
       </Head>
 
       <Layout>
-        {/* <h1 className="title">{matchedAltanaFromJSON.nazwa}</h1>
+        {/* <h1 className="title">{matchedAltanaFromJSON.name}</h1>
         <p>{matchedAltanaFromJSON.daneTechniczne.dodatkoweInfo}</p> */}
 
         <Image
@@ -39,7 +39,7 @@ export async function getStaticProps() {
 export async function getStaticPaths() {
   const paths = altanyData["altanyData"].map((altana) => ({
     params: {
-      oferta: altana.nazwa.toLowerCase().replace(/\s+/g, "-"),
+      oferta: altana.name.toLowerCase().replace(/\s+/g, "-"),
     },
   }));
 

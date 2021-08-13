@@ -1,8 +1,9 @@
 {
     "altanyData": [
         {
-            "nazwa": "Altana Ogroda A1",
-            "cena": 1500,
+            "name": "Altana Ogroda A1",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 1500,
             "thumbnail": "",
             "zdjecia": [],
             "daneTechniczne": {
@@ -17,8 +18,111 @@
             }
         },
         {
-            "nazwa": "Altana Ogroda A2",
-            "cena": 3500,
+            "name": "Altana Ogroda A2",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 3500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "name": "Altana Ogroda A1",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 1500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "name": "Altana Ogroda A2",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 3500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "name": "Altana Ogroda A1",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 1500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "name": "Altana Ogroda A2",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 3500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "name": "Altana Ogroda A1",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 1500,
+            "thumbnail": "",
+            "zdjecia": [],
+            "daneTechniczne": {
+                "wymiary": "300x400",
+                "wysokośc": "310",
+                "kat": 27,
+                "Impregnacja": "Lakier Drewnochron",
+                "dostepneKolory": "",
+                "typDachowki": "",
+                "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
+
+            }
+        },
+        {
+            "name": "Altana Ogroda A2",
+            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "price": 3500,
             "thumbnail": "",
             "zdjecia": [],
             "daneTechniczne": {
