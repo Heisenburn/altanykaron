@@ -9,26 +9,23 @@ import Button from "../components/button";
 import { NavigationHome } from "../styledComponents/nav";
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
-import { useEffect } from "react";
+import { useState } from "react";
+import CustomImage from "../components/customImage";
 export default function Home({ dataFromStaticProps }) {
-  // const handleScroll = () => {
-  //   window.addEventListener("scroll", () => {
-  //     let scrollTop = document.documentElement.scrollTop;
-  //     document.getElementById("test").style.width = 100 + scrollTop / 5 + "%";
-  //   });
-  // };
+  const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     window.addEventListener("scroll", handleScroll);
-  //   }
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  const [isListingExpanded, setListingExpanded] = useState(false);
+  const shouldRenderMoreOffersButton =
+    dataFromStaticPropsLength > 5 ? true : false;
+
+  const numberOfElementsToRender = isListingExpanded
+    ? dataFromStaticPropsLength
+    : 5;
 
   return (
     <Layout home>
       <HomeContainer>
-        <TwoColumnsLayout>
+        <TwoColumnsLayout className="heroSectionColumns">
           <div className="column">
             <div className="logo">
               <Image
@@ -69,11 +66,14 @@ export default function Home({ dataFromStaticProps }) {
                 jakości. Sami strugamy i suszymy drewno. Nasze produkty to 100%
                 zadowolonych klientów z których wiele jest z polecenia.
               </p>
-              <Button>ZOBACZ OFERTY</Button>
+
+              <Link href={"#oferty"} passHref>
+                <Button>ZOBACZ OFERTY </Button>
+              </Link>
             </Container>
           </HeroSection>
         </TwoColumnsLayout>
-        <TwoColumnsLayout>
+        <TwoColumnsLayout className="heroSectionColumns">
           <div className="column" id="heroDescription">
             <Container>
               <h1>Jakość i precyzja</h1>
@@ -106,49 +106,60 @@ export default function Home({ dataFromStaticProps }) {
         </TwoColumnsLayout>
         <h3 id="ofertaIntro">OFERTA</h3>
 
-        <Listing>
+        <Listing id="oferty">
           <Container>
             {/* TODO! tu problemy w konsoli zobacz */}
             <ul>
-              {dataFromStaticProps["altanyData"].map((item, index) => {
-                return index < 6 ? (
-                  <li key={item.url}>
-                    <div className="imageWrapper">
-                      <Image
-                        quality={1}
-                        src={IMG_6448}
-                        width={307}
-                        height={270}
-                        layout="responsive"
-                        alt={`zdjecie oferty: ${item.name}`}
-                      />
-                    </div>
-                    <div className="listingItem-data">
-                      <h3 key={item.name}>{item.name} - </h3>
-                      <p>{item.shortDescription}</p>
-                      <p>
-                        <strong>{item.price} zł</strong>
-                      </p>
-                      {/* tu sie upewnic czy link taki sam serwer i klient */}
+              {dataFromStaticProps["altanyData"]
+                .slice(0, numberOfElementsToRender)
+                .map((item) => {
+                  return (
+                    <li key={item.url}>
+                      <div className="imageWrapper">
+                        <Image
+                          quality={1}
+                          src={IMG_6448}
+                          width={307}
+                          height={270}
+                          placeholder="blur"
+                          layout="responsive"
+                          alt={`zdjecie oferty: ${item.name}`}
+                        />
+                      </div>
+                      <div className="listingItem-data">
+                        <h3 key={item.name}>{item.name} - </h3>
+                        <p>{item.shortDescription}</p>
+                        <p>
+                          <strong>{item.price} zł</strong>
+                        </p>
+                        {/* tu sie upewnic czy link taki sam serwer i klient */}
 
-                      <Button className="priceButton">
-                        <Link
-                          key={item.url + item.name}
-                          href={
-                            "oferty/" +
-                            item.name.toLowerCase().replace(/\s+/g, "-")
-                          }
-                        >
-                          WIĘCEJ
-                        </Link>
-                      </Button>
-                    </div>
-                  </li>
-                ) : null;
-              })}
+                        <Button className="priceButton">
+                          <Link
+                            key={item.url + item.name}
+                            href={
+                              "oferty/" +
+                              item.name.toLowerCase().replace(/\s+/g, "-")
+                            }
+                          >
+                            WIĘCEJ
+                          </Link>
+                        </Button>
+                      </div>
+                    </li>
+                  );
+                })}
             </ul>
           </Container>
           <div className="triangle"></div>
+          {shouldRenderMoreOffersButton ? (
+            <Button
+              className="seeAllOffers"
+              onClick={() => setListingExpanded((prevState) => !prevState)}
+            >
+              {isListingExpanded ? "MNIEJ" : "WIĘCEJ"}
+            </Button>
+          ) : null}
         </Listing>
       </HomeContainer>
     </Layout>
@@ -169,12 +180,22 @@ const Listing = styled.div`
   bottom: 0;
   top: 0;
 
+  .seeAllOffers {
+    background: #a21c26;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    position: relative;
+    z-index: 9;
+  }
+
   .triangle {
     display: block;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 0 230vh 500vw;
+    border-width: 0 0 130vh 500vw;
     border-color: transparent transparent #57423f2e transparent;
     position: absolute;
     left: -400vw;
