@@ -16,11 +16,14 @@ export const Navigation = styled.nav`
     margin: 0;
     li {
       font-weight: 600;
-      font-size: 18px;
+      font-size: 16px;
+      text-transform: uppercase;
     }
   }
 `;
 
-export const NavigationHome = styled(Navigation)`
-  background-color: ${({ theme }) => theme.brown};
+export const NavigationMobile = styled.nav`
+  position: fixed;
+  right: 30px;
+  top: 20px;
 `;

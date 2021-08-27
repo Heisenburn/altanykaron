@@ -4,11 +4,10 @@ const TwoColumnsLayout = styled.div`
   display: flex;
 
   &.footerColumns {
-    .column {
-      width: 340px;
-      color: white;
-      p {
-        font-size: 16px;
+    > .column:first-of-type {
+      flex-basis: 570px;
+      #companyInfo {
+        width: 340px;
       }
     }
   }
@@ -20,6 +19,8 @@ const TwoColumnsLayout = styled.div`
       left: 0 !important;
       z-index: 99999999 !important;
       margin: 68px 84px;
+      width: 250px !important;
+      height: 50px !important;
     }
     .column {
       width: 50vw;

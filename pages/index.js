@@ -6,11 +6,14 @@ import TwoColumnsLayout from "../styledComponents/TwoColumnsLayout";
 import Image from "next/image";
 import Container from "../styledComponents/container";
 import Button from "../components/button";
-import { NavigationHome } from "../styledComponents/nav";
+import { Navigation, NavigationMobile } from "../styledComponents/nav";
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
 import { useState } from "react";
-import CustomImage from "../components/customImage";
+import { checkIfDesktop } from "../hooks/checkIfDesktop";
+
+const NAV_ELEMENTS = ["home", "oferta", "cennik", "kontakt"];
+
 export default function Home({ dataFromStaticProps }) {
   const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
 
@@ -21,6 +24,8 @@ export default function Home({ dataFromStaticProps }) {
   const numberOfElementsToRender = isListingExpanded
     ? dataFromStaticPropsLength
     : 5;
+
+  const isDesktop = checkIfDesktop();
 
   return (
     <Layout home>
@@ -52,14 +57,25 @@ export default function Home({ dataFromStaticProps }) {
           </div>
           <HeroSection className="column heroSection">
             <Container>
-              <NavigationHome>
-                <ul>
-                  <li>HOME</li>
-                  <li>OFERTA</li>
-                  <li>GALERIA</li>
-                  <li>KONTAKT</li>
-                </ul>
-              </NavigationHome>
+              {isDesktop ? (
+                <Navigation>
+                  <ul>
+                    {NAV_ELEMENTS.map((linkElement) => {
+                      return <li>{linkElement}</li>;
+                    })}
+                  </ul>
+                </Navigation>
+              ) : (
+                <NavigationMobile>
+                  <Image
+                    src="/images/icons/complex.svg"
+                    width={43}
+                    height={43}
+                    alt="Your Name"
+                  />
+                </NavigationMobile>
+              )}
+
               <h1>Najlepsze altany drewniane w województwie śląskim</h1>
               <p>
                 Dokładamy wszelkich starań aby nasze produkty były najwyższej
