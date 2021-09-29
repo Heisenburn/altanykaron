@@ -6,20 +6,17 @@ import TwoColumnsLayout from "../styledComponents/TwoColumnsLayout";
 import Image from "next/image";
 import Container from "../styledComponents/container";
 import Button from "../components/button";
-import { Navigation, NavigationMobile } from "../styledComponents/nav";
+
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
 import { useState } from "react";
+import { Navigation } from "../components/navigation";
 import { checkIfDesktop } from "../hooks/checkIfDesktop";
-
-const NAV_ELEMENTS = ["home", "oferta", "cennik", "kontakt"];
 
 export default function Home({ dataFromStaticProps }) {
   const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
 
   const [isListingExpanded, setListingExpanded] = useState(false);
-  const shouldRenderMoreOffersButton =
-    dataFromStaticPropsLength > 5 ? true : false;
 
   const numberOfElementsToRender = isListingExpanded
     ? dataFromStaticPropsLength
@@ -29,24 +26,23 @@ export default function Home({ dataFromStaticProps }) {
 
   return (
     <Layout home>
+      {!isDesktop ? <Navigation /> : null}
       <HomeContainer>
         <TwoColumnsLayout className="heroSectionColumns">
-          <div className="column">
-            <div className="logo">
+          <div className="column imgColumn">
+            {/* <div className="logo">
               <Image
                 quality={1}
                 src="/images/logo.svg"
                 width={250}
                 height={50}
-                layout="responsive"
                 alt="Your Name"
               />
-            </div>
+            </div> */}
 
             <div className="imageWrapper">
               <Image
                 quality={1}
-                id="test"
                 alt=""
                 src={IMG_6697}
                 layout="fill"
@@ -57,24 +53,7 @@ export default function Home({ dataFromStaticProps }) {
           </div>
           <HeroSection className="column heroSection">
             <Container>
-              {isDesktop ? (
-                <Navigation>
-                  <ul>
-                    {NAV_ELEMENTS.map((linkElement) => {
-                      return <li>{linkElement}</li>;
-                    })}
-                  </ul>
-                </Navigation>
-              ) : (
-                <NavigationMobile>
-                  <Image
-                    src="/images/icons/complex.svg"
-                    width={43}
-                    height={43}
-                    alt="Your Name"
-                  />
-                </NavigationMobile>
-              )}
+              {isDesktop ? <Navigation /> : null}
 
               <h1>Najlepsze altany drewniane w województwie śląskim</h1>
               <p>
@@ -89,7 +68,7 @@ export default function Home({ dataFromStaticProps }) {
             </Container>
           </HeroSection>
         </TwoColumnsLayout>
-        <TwoColumnsLayout className="heroSectionColumns">
+        <TwoColumnsLayout columnReverse className="heroSectionColumns">
           <div className="column" id="heroDescription">
             <Container>
               <h1>Jakość i precyzja</h1>
@@ -107,7 +86,7 @@ export default function Home({ dataFromStaticProps }) {
               </p>
             </Container>
           </div>
-          <div className="column">
+          <div className="column imgColumn">
             <div className="imageWrapper">
               <Image
                 quality={1}
@@ -120,8 +99,7 @@ export default function Home({ dataFromStaticProps }) {
             </div>
           </div>
         </TwoColumnsLayout>
-        <h3 id="ofertaIntro">OFERTA</h3>
-
+        <h4 id="ofertaIntro">OFERTA</h4>
         <Listing id="oferty">
           <Container>
             {/* TODO! tu problemy w konsoli zobacz */}
@@ -166,16 +144,16 @@ export default function Home({ dataFromStaticProps }) {
                   );
                 })}
             </ul>
+            <div className="triangle"></div>
+            {!isListingExpanded ? (
+              <Button
+                className="seeAllOffers"
+                onClick={() => setListingExpanded(true)}
+              >
+                {"Zobacz pozostałe oferty"}
+              </Button>
+            ) : null}
           </Container>
-          <div className="triangle"></div>
-          {shouldRenderMoreOffersButton ? (
-            <Button
-              className="seeAllOffers"
-              onClick={() => setListingExpanded((prevState) => !prevState)}
-            >
-              {isListingExpanded ? "MNIEJ" : "WIĘCEJ"}
-            </Button>
-          ) : null}
         </Listing>
       </HomeContainer>
     </Layout>
@@ -188,7 +166,14 @@ export async function getStaticProps() {
 }
 
 const Listing = styled.div`
-  padding: 134px 0;
+  & > div {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 14px 0 134px;
+  }
   background-color: ${({ theme }) => theme.gray};
   position: relative;
   left: 0;
@@ -204,6 +189,7 @@ const Listing = styled.div`
     font-size: 16px;
     position: relative;
     z-index: 9;
+    margin-bottom: 134px;
   }
 
   .triangle {
@@ -220,20 +206,41 @@ const Listing = styled.div`
     z-index: 0;
   }
 
+  ul {
+    margin-top: 0;
+    padding-top: 140px;
+    @media screen and (max-width: 1024px) {
+      padding: 0;
+      margin: 0;
+    }
+  }
   li {
     background: white;
-    margin: 52px 98px;
+    margin: 52px 0;
     z-index: 1;
     position: relative;
 
     display: flex;
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 97px 0;
+    }
 
     .imageWrapper {
       width: 307px;
       height: 270px !important;
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+      }
       & > div {
         width: 307px;
         height: 100%;
+        @media screen and (max-width: 1024px) {
+          height: 208px;
+          width: auto;
+        }
       }
       img {
         object-fit: cover;
@@ -246,6 +253,15 @@ const Listing = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
+
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        text-align: center;
+      }
+
       h3 {
         margin-top: 23px;
       }
@@ -259,6 +275,12 @@ const Listing = styled.div`
       bottom: 23px;
       right: 38px;
 
+      @media screen and (max-width: 1024px) {
+        position: static;
+        padding: 0;
+        width: 100%;
+      }
+
       a {
         text-decoration: none;
         color: white;
@@ -271,6 +293,9 @@ const Listing = styled.div`
 `;
 
 const HomeContainer = styled.div`
+  @media screen and (max-width: 1024px) {
+    padding-top: 100px;
+  }
   .imageWrapper {
     position: relative;
     height: 100% !important;
@@ -279,7 +304,7 @@ const HomeContainer = styled.div`
   #ofertaIntro {
     color: white;
     background-color: ${({ theme }) => theme.brown};
-    height: 142px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -295,8 +320,22 @@ const HeroSection = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
 
+  @media screen and (max-width: 1024px) {
+    button {
+      width: 155px;
+      font-size: 14px;
+      height: 44.98px;
+      margin-bottom: 140px;
+    }
+  }
+
   h1 {
-    padding: 116px 0 36px;
+    padding: 60px 0;
+  }
+  @media screen and (min-width: 1024px) {
+    h1 {
+      padding: 116px 0 36px;
+    }
   }
   h1,
   p {

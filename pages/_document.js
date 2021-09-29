@@ -29,7 +29,8 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap"
             rel="stylesheet"
           />
-          <title>My page</title>
+          <link rel="icon" href="images/icons/favicon.svg" />
+          <title>altanykaron.pl - Domki i grzybki ogrodowe</title>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>

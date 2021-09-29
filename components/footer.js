@@ -111,9 +111,7 @@ const FooterContainer = styled.div`
 
   color: white;
 
-  p {
-    font-size: 16px;
-  }
+ 
   footer {
     padding-top: 55px;
   }
@@ -152,6 +150,9 @@ const FooterContainer = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      @media screen and (max-width: 1024px) {
+        flex-direction: column;
+      }
     }
 
     .icon {
@@ -164,6 +165,9 @@ const FooterContainer = styled.div`
       p {
         text-transform: uppercase;
         font-size: 10px;
+      }
+      @media screen and (max-width: 1024px) {
+        padding: 10px 0;
       }
     }
   }
