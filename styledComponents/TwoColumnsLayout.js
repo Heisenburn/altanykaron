@@ -3,19 +3,19 @@ import styled from "styled-components";
 const TwoColumnsLayout = styled.div`
   display: flex;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023px) {
     flex-direction: ${({ columnReverse }) =>
       columnReverse ? "column-reverse" : "column"};
   }
 
   &.footerColumns {
     > .column:first-of-type {
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1023px) {
         flex-basis: 570px;
       }
       #companyInfo {
         width: 340px;
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1023px) {
           width: auto;
         }
       }
@@ -34,7 +34,7 @@ const TwoColumnsLayout = styled.div`
       height: 50px !important;
     }
     .column {
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1023px) {
         width: 50vw;
         max-height: 920px;
         &.imgColumn {
@@ -49,12 +49,12 @@ const TwoColumnsLayout = styled.div`
     #heroDescription {
       background-color: ${({ theme }) => theme.brownLight};
       color: white;
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         padding: 40px 0 80px;
       }
       h1 {
         padding: 152px 0 89px;
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1023px) {
           padding: 40px 0;
           margin: 0;
         }

@@ -30,15 +30,17 @@ export default function Home({ dataFromStaticProps }) {
       <HomeContainer>
         <TwoColumnsLayout className="heroSectionColumns">
           <div className="column imgColumn">
-            {/* <div className="logo">
-              <Image
-                quality={1}
-                src="/images/logo.svg"
-                width={250}
-                height={50}
-                alt="Your Name"
-              />
-            </div> */}
+            <div className="logo">
+              {isDesktop ? (
+                <Image
+                  quality={1}
+                  src="/images/logo.svg"
+                  width={250}
+                  height={50}
+                  alt="Your Name"
+                />
+              ) : null}
+            </div>
 
             <div className="imageWrapper">
               <Image
@@ -99,7 +101,13 @@ export default function Home({ dataFromStaticProps }) {
             </div>
           </div>
         </TwoColumnsLayout>
-        <h4 id="ofertaIntro">OFERTA</h4>
+        <div id="ofertaIntro">
+          <Container>
+            <span className="borderBox"></span>
+            <h4>OFERTA</h4>
+            <span className="borderBox"></span>
+          </Container>
+        </div>
         <Listing id="oferty">
           <Container>
             {/* TODO! tu problemy w konsoli zobacz */}
@@ -167,13 +175,11 @@ export async function getStaticProps() {
 
 const Listing = styled.div`
   & > div {
+    padding-bottom: 134px;
     border-left: 1px solid white;
     border-right: 1px solid white;
   }
 
-  @media screen and (max-width: 1024px) {
-    padding: 14px 0 134px;
-  }
   background-color: ${({ theme }) => theme.gray};
   position: relative;
   left: 0;
@@ -189,7 +195,6 @@ const Listing = styled.div`
     font-size: 16px;
     position: relative;
     z-index: 9;
-    margin-bottom: 134px;
   }
 
   .triangle {
@@ -208,20 +213,29 @@ const Listing = styled.div`
 
   ul {
     margin-top: 0;
-    padding-top: 140px;
-    @media screen and (max-width: 1024px) {
+    padding: 140px 60px 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (max-width: 1023px) {
       padding: 0;
       margin: 0;
     }
   }
   li {
+    width: 100%;
     background: white;
     margin: 52px 0;
+    max-width: 1400px;
     z-index: 1;
     position: relative;
 
     display: flex;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
       flex-direction: column;
       align-items: center;
       padding: 0;
@@ -231,13 +245,13 @@ const Listing = styled.div`
     .imageWrapper {
       width: 307px;
       height: 270px !important;
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         width: 100%;
       }
       & > div {
         width: 307px;
         height: 100%;
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1023px) {
           height: 208px;
           width: auto;
         }
@@ -254,7 +268,7 @@ const Listing = styled.div`
       flex-direction: column;
       position: relative;
 
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -275,7 +289,7 @@ const Listing = styled.div`
       bottom: 23px;
       right: 38px;
 
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         position: static;
         padding: 0;
         width: 100%;
@@ -293,7 +307,7 @@ const Listing = styled.div`
 `;
 
 const HomeContainer = styled.div`
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023px) {
     padding-top: 100px;
   }
   .imageWrapper {
@@ -302,13 +316,31 @@ const HomeContainer = styled.div`
   }
 
   #ofertaIntro {
+    & > div {
+      height: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .borderBox {
+        height: 70%;
+        width: 50px;
+        display: block;
+        align-self: flex-end !important;
+        &:first-of-type {
+          border-left: 1px solid white;
+          border-top: 1px solid white;
+        }
+        &:nth-of-type(2) {
+          border-right: 1px solid white;
+          border-top: 1px solid white;
+        }
+      }
+    }
     color: white;
-    background-color: ${({ theme }) => theme.brown};
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+    background-color: ${({ theme }) => theme.brown};
   }
 `;
 
@@ -320,7 +352,7 @@ const HeroSection = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023px) {
     button {
       width: 155px;
       font-size: 14px;
@@ -332,7 +364,7 @@ const HeroSection = styled.div`
   h1 {
     padding: 60px 0;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023px) {
     h1 {
       padding: 116px 0 36px;
     }

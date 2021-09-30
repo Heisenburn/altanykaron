@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   border: none;
   font-weight: bold;
   font-size: 18px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023px) {
     font-size: 16px;
   }
   cursor: pointer;

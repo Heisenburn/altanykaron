@@ -111,7 +111,6 @@ const FooterContainer = styled.div`
 
   color: white;
 
- 
   footer {
     padding-top: 55px;
   }
@@ -150,7 +149,7 @@ const FooterContainer = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         flex-direction: column;
       }
     }
@@ -166,7 +165,7 @@ const FooterContainer = styled.div`
         text-transform: uppercase;
         font-size: 10px;
       }
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         padding: 10px 0;
       }
     }
