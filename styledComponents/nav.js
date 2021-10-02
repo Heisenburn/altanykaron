@@ -49,10 +49,32 @@ export const NavigationMobile = styled.nav`
   box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 0.15);
   flex-direction: ${({ isNavMobileExpanded }) =>
     isNavMobileExpanded ? "column" : ""};
+  height: ${({ isNavMobileExpanded }) =>
+    isNavMobileExpanded ? "100vh" : "auto"};
+  background-image: ${({ isNavMobileExpanded }) =>
+    isNavMobileExpanded ? "url(/images/triangles.svg)" : "none"};
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
 
   ul {
     height: ${({ isNavMobileExpanded }) =>
       isNavMobileExpanded ? "100vh" : "auto"};
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      &:first-of-type {
+        padding-top: 100px;
+      }
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      padding-bottom: 75px;
+    }
   }
 
   #nav-logo-and-hamburger {

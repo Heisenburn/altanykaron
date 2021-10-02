@@ -41,7 +41,8 @@ export default function Footer() {
                       alt="Your Name"
                     />
                     <p>
-                      <strong>Stary Broniszew</strong> ul. Tartakowa 10
+                      <strong>Stary Broniszew</strong>
+                      <br /> ul. Tartakowa 10
                     </p>
                   </div>
                   <div className="iconWrapper">
@@ -97,9 +98,11 @@ export default function Footer() {
               </div>
             </Container>
           </div>
-          <p id="copyright">
-            Copyright © 2021 altanykaron.pl. All rights reserved.
-          </p>
+          <Container>
+            <p id="copyright">
+              Copyright © 2021 altanykaron.pl. All rights reserved.
+            </p>
+          </Container>
         </footer>
       </FooterContainer>
     </ThemeProvider>
