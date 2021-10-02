@@ -5,7 +5,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [""],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -22,7 +22,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -39,7 +39,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -56,7 +56,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -73,7 +73,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -90,7 +90,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -107,7 +107,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
@@ -124,7 +124,7 @@
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "zdjecia": [],
+            "photos": [],
             "daneTechniczne": {
                 "wymiary": "300x400",
                 "wysokośc": "310",

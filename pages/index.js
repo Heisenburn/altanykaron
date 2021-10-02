@@ -114,9 +114,9 @@ export default function Home({ dataFromStaticProps }) {
             <ul>
               {dataFromStaticProps["altanyData"]
                 .slice(0, numberOfElementsToRender)
-                .map((item) => {
+                .map(({ name, shortDescription, price, url }) => {
                   return (
-                    <li key={item.url}>
+                    <li key={url}>
                       <div className="imageWrapper">
                         <Image
                           quality={1}
@@ -125,23 +125,23 @@ export default function Home({ dataFromStaticProps }) {
                           height={270}
                           placeholder="blur"
                           layout="responsive"
-                          alt={`zdjecie oferty: ${item.name}`}
+                          alt={`zdjecie oferty: ${name}`}
                         />
                       </div>
                       <div className="listingItem-data">
-                        <h3 key={item.name}>{item.name} - </h3>
-                        <p>{item.shortDescription}</p>
+                        <h3 key={name}>{name} - </h3>
+                        <p>{shortDescription}</p>
                         <p>
-                          <strong>{item.price} zł</strong>
+                          <strong>{price} zł</strong>
                         </p>
                         {/* tu sie upewnic czy link taki sam serwer i klient */}
 
                         <Button className="priceButton">
                           <Link
-                            key={item.url + item.name}
+                            key={url + name}
                             href={
                               "oferty/" +
-                              item.name.toLowerCase().replace(/\s+/g, "-")
+                              name.toLowerCase().replace(/\s+/g, "-")
                             }
                           >
                             WIĘCEJ
