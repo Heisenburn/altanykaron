@@ -308,7 +308,7 @@ const Listing = styled.div`
 
 const HomeContainer = styled.div`
   @media screen and (max-width: 1023px) {
-    padding-top: 100px;
+    /* padding-top: 100px; */
   }
   .imageWrapper {
     position: relative;

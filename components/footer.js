@@ -14,7 +14,7 @@ export default function Footer() {
                 <div id="companyInfo">
                   <div className="logo">
                     <Image
-                      src="/images/logo-white.svg"
+                      src="/images/logo-footer.svg"
                       width={210}
                       height={26}
                       layout="responsive"

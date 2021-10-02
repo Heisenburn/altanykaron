@@ -39,8 +39,6 @@ export const NavigationMobile = styled.nav`
   position: fixed;
   width: 100vw;
   z-index: 999999999999;
-  height: ${({ isNavMobileExpanded }) =>
-    isNavMobileExpanded ? "100vh" : "100px"};
   background-color: ${({ theme }) => theme.brown};
   display: flex;
   justify-content: center;
@@ -51,6 +49,11 @@ export const NavigationMobile = styled.nav`
   box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 0.15);
   flex-direction: ${({ isNavMobileExpanded }) =>
     isNavMobileExpanded ? "column" : ""};
+
+  ul {
+    height: ${({ isNavMobileExpanded }) =>
+      isNavMobileExpanded ? "100vh" : "auto"};
+  }
 
   #nav-logo-and-hamburger {
     display: flex;
@@ -136,4 +139,3 @@ export const NavigationMobile = styled.nav`
     }
   }
 `;
-// `.withComponent(Nav);
