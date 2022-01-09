@@ -1,10 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 import { checkIfDesktop } from "../../hooks/checkIfDesktop";
 import { NavigationMobile, NavigationDesktop } from "./Navigation.theme";
 import { useState } from "react";
 import { createGlobalStyle } from "styled-components";
 
 const NAV_ELEMENTS = ["home", "oferta", "galeria", "kontakt"];
+
+const getNavJSX = ()=>{
+  return(
+
+      <ul>
+        {NAV_ELEMENTS.map((linkElement) => {
+          return <li><Link href={linkElement === "oferta" ? "/#oferta" : linkElement}>{linkElement}</Link></li> })}
+      </ul>
+  )
+}
 
 export const Navigation = () => {
   const isDesktop = checkIfDesktop();
@@ -25,11 +36,7 @@ export const Navigation = () => {
     <>
       {isDesktop ? (
         <NavigationDesktop>
-          <ul>
-            {NAV_ELEMENTS.map((linkElement) => {
-              return <li>{linkElement}</li>;
-            })}
-          </ul>
+          {getNavJSX()}
         </NavigationDesktop>
       ) : (
         <>
@@ -56,11 +63,7 @@ export const Navigation = () => {
             </div>
 
             {isNavMobileExpanded ? (
-              <ul>
-                {NAV_ELEMENTS.map((linkElement) => {
-                  return <li>{linkElement}</li>;
-                })}
-              </ul>
+                getNavJSX()
             ) : null}
           </NavigationMobile>
         </>

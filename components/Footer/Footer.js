@@ -1,5 +1,5 @@
-import Container from "../../theme/container";
-import theme from "../../theme/theme";
+import Container from "../../globalStyles/globalContainer.theme";
+import theme from "../../globalStyles/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
 import TwoColumnsLayout from "../Layouts/TwoColumnsLayout";

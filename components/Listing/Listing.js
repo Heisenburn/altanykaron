@@ -1,7 +1,22 @@
-const Listing = ({ dataFromStaticProps }) => {
+import ListingWrapper from './Listing.theme';
+import Container from "../../globalStyles/globalContainer.theme";
+import {useState} from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Button from "../Button/button";
+const Listing = ({ dataFromStaticProps, id }) => {
+
+    const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
+    const [isListingExpanded, setListingExpanded] = useState(false);
+    const numberOfElementsToRender = isListingExpanded
+        ? dataFromStaticPropsLength
+        : 5;
+
   return (
-    <Container>
-      {/* TODO! tu problemy w konsoli zobacz */}
+        <ListingWrapper id={id}>
+            <Container>
+
+            {/* TODO! tu problemy w konsoli zobacz */}
       <ul>
         {dataFromStaticProps["altanyData"]
           .slice(0, numberOfElementsToRender)
@@ -22,29 +37,25 @@ const Listing = ({ dataFromStaticProps }) => {
                       src={`${offerImageDirectory}${ID}/mainPhoto.jpeg`}
                       width={307}
                       height={270}
-                      // placeholder="blur"
                       layout="responsive"
                       alt={`zdjecie oferty: ${name}`}
                     />
                   </div>
                   <div className="listingItem-data">
-                    <h3 key={name}>{name} - </h3>
+                    <h3 key={name}>{name}</h3>
                     <p>{shortDescription}</p>
                     <p>
                       <strong>{price} zł</strong>
                     </p>
                     {/* tu sie upewnic czy link taki sam serwer i klient */}
 
-                    <Button className="priceButton">
-                      <Link
-                        key={url + name}
-                        href={
+                      <Link passHref key={ID} href={
                           "oferty/" + name.toLowerCase().replace(/\s+/g, "-")
                         }
                       >
-                        WIĘCEJ
+                          <a className="priceButton">WIĘCEJ</a>
+
                       </Link>
-                    </Button>
                   </div>
                 </li>
               );
@@ -60,6 +71,10 @@ const Listing = ({ dataFromStaticProps }) => {
           {"Zobacz pozostałe oferty"}
         </Button>
       ) : null}
-    </Container>
+            </Container>
+        </ListingWrapper>
+
   );
 };
+
+export default Listing;

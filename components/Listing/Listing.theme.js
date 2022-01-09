@@ -1,4 +1,6 @@
-const Listing = styled.div`
+import styled from "styled-components";
+
+const ListingWrapper = styled.div`
   & > div {
     padding-bottom: 134px;
     border-left: 1px solid white;
@@ -113,6 +115,12 @@ const Listing = styled.div`
       position: absolute;
       bottom: 23px;
       right: 38px;
+      text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
 
       @media screen and (max-width: 1023px) {
         position: static;
@@ -120,13 +128,9 @@ const Listing = styled.div`
         width: 100%;
       }
 
-      a {
-        text-decoration: none;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+      
     }
   }
 `;
+
+export default ListingWrapper;

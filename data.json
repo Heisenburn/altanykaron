@@ -92,7 +92,7 @@
         },
         {
             "name": "Altana Ogroda A2",
-        "ID": 2,
+        "ID": "A2",
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",

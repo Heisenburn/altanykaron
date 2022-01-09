@@ -4,12 +4,11 @@ import styled from "styled-components";
 import altanyData from "../data.json";
 import TwoColumnsLayout from "../components/Layouts/TwoColumnsLayout";
 import Image from "next/image";
-import Container from "../theme/container";
 import Button from "../components/Button/button";
-
+import Container from "../globalStyles/globalContainer.theme";
+import Listing from "../components/Listing/Listing";
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
-import { useState } from "react";
 import { Navigation } from "../components/Navigation/Navigation";
 import { checkIfDesktop } from "../hooks/checkIfDesktop";
 
@@ -20,19 +19,13 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ dataFromStaticProps }) {
-  const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
+const Home =({ dataFromStaticProps }) =>{
 
-  const [isListingExpanded, setListingExpanded] = useState(false);
-
-  const numberOfElementsToRender = isListingExpanded
-    ? dataFromStaticPropsLength
-    : 5;
 
   const isDesktop = checkIfDesktop();
 
   return (
-    <Layout home>
+    <Layout isHome>
       {!isDesktop ? <Navigation /> : null}
       <HomeContainer>
         <TwoColumnsLayout className="heroSectionColumns">
@@ -115,16 +108,16 @@ export default function Home({ dataFromStaticProps }) {
             <span className="borderBox"></span>
           </Container>
         </div>
-        <Listing id="oferty" dataFromStaticProps={dataFromStaticProps} />
+        <Listing id="oferta" dataFromStaticProps={dataFromStaticProps} />
       </HomeContainer>
     </Layout>
   );
 }
 
+export default Home;
+
 const HomeContainer = styled.div`
-  @media screen and (max-width: 1023px) {
-    /* padding-top: 100px; */
-  }
+  
   .imageWrapper {
     position: relative;
     height: 100% !important;

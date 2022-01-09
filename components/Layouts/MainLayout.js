@@ -1,9 +1,8 @@
 import { Navigation } from "../Navigation/Navigation";
-import Container from "../";
-import styled from "styled-components";
-import theme from "../styledComponents/theme";
+import Container from "../../globalStyles/globalContainer.theme";
+import theme from "../../globalStyles/theme";
 import { ThemeProvider } from "styled-components";
-import Footer from "./Footer/footer";
+import Footer from "../Footer/Footer";
 export default function Layout({ children, home }) {
   return (
     <ThemeProvider theme={theme}>
@@ -18,7 +17,3 @@ export default function Layout({ children, home }) {
   );
 }
 
-const Container = styled.div`
-  width: 80%;
-  margin: 0 auto;
-`;

@@ -3,18 +3,23 @@ import styled from "styled-components";
 const Nav = styled.nav`
   ul {
     list-style: none;
-    color: white;
 
     li {
       font-weight: 600;
       font-size: 16px;
       text-transform: uppercase;
       cursor: pointer;
+      
+      a{
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 `;
 
 export const NavigationDesktop = styled.nav`
+  ${({ isHome }) => isHome ?  `
   margin: 0;
   padding-top: 68px;
   ul {
@@ -32,6 +37,10 @@ export const NavigationDesktop = styled.nav`
       text-transform: uppercase;
     }
   }
+  ` : `
+  background: blue;
+  `
+};
 `.withComponent(Nav);
 
 export const NavigationMobile = styled.nav`
@@ -40,9 +49,6 @@ export const NavigationMobile = styled.nav`
   width: 100vw;
   z-index: 999999999999;
   background-color: ${({ theme }) => theme.brown};
-  display: flex;
-  justify-content: center;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
