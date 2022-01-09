@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { checkIfDesktop } from "../hooks/checkIfDesktop";
-import { NavigationMobile, NavigationDesktop } from "../styledComponents/nav";
+import { checkIfDesktop } from "../../hooks/checkIfDesktop";
+import { NavigationMobile, NavigationDesktop } from "./Navigation.theme";
 import { useState } from "react";
 import { createGlobalStyle } from "styled-components";
 
-const NAV_ELEMENTS = ["home", "oferta", "cennik", "kontakt"];
+const NAV_ELEMENTS = ["home", "oferta", "galeria", "kontakt"];
 
 export const Navigation = () => {
   const isDesktop = checkIfDesktop();

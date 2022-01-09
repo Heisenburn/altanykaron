@@ -1,12 +1,13 @@
 {
     "altanyData": [
         {
-            "name": "Altana Ogroda A1",
-            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "name": "Altana Ogrodowa A1",
+            "ID": "A1",
+            "shortDescription": "Wymiar altany 450 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "photos": [""],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+            "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -18,12 +19,13 @@
             }
         },
         {
-            "name": "Altana Ogroda A2",
-            "shortDescription": "Wymiar altany 300 x 300 cm",
+            "name": "Altana Ogrodowa A2",
+            "ID": "A2",
+            "shortDescription": "Wymiar altany 220 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -36,11 +38,12 @@
         },
         {
             "name": "Altana Ogroda A1",
+            "ID": "A1",
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -53,11 +56,12 @@
         },
         {
             "name": "Altana Ogroda A2",
+            "ID": "A2",
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -70,11 +74,12 @@
         },
         {
             "name": "Altana Ogroda A1",
+            "ID": "A1",
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -87,11 +92,12 @@
         },
         {
             "name": "Altana Ogroda A2",
+        "ID": 2,
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -104,11 +110,12 @@
         },
         {
             "name": "Altana Ogroda A1",
+            "ID": "A1",
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 1500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,
@@ -121,11 +128,12 @@
         },
         {
             "name": "Altana Ogroda A2",
+            "ID": "A2",
             "shortDescription": "Wymiar altany 300 x 300 cm",
             "price": 3500,
             "thumbnail": "",
-            "photos": [],
-            "daneTechniczne": {
+            "offerImageDirectory": "/images/offers/",
+                "technicalDetails": {
                 "wymiary": "300x400",
                 "wysokośc": "310",
                 "kat": 27,

@@ -1,8 +1,8 @@
-import Container from "../styledComponents/container";
-import theme from "../styledComponents/theme";
+import Container from "../../theme/container";
+import theme from "../../theme/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
-import TwoColumnsLayout from "../styledComponents/TwoColumnsLayout";
+import TwoColumnsLayout from "../Layouts/TwoColumnsLayout";
 export default function Footer() {
   return (
     <ThemeProvider theme={theme}>
@@ -41,8 +41,7 @@ export default function Footer() {
                       alt="Your Name"
                     />
                     <p>
-                      <strong>Stary Broniszew</strong>
-                      <br /> ul. Tartakowa 10
+                      <strong>Stary Broniszew</strong> ul. Tartakowa 10
                     </p>
                   </div>
                   <div className="iconWrapper">
@@ -125,6 +124,7 @@ const FooterContainer = styled.div`
   #contactFooter {
     p {
       margin: 0;
+      font-size: 16px;
     }
     #phoneNumber {
       color: #ffc800;

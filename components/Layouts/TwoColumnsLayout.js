@@ -14,6 +14,9 @@ const TwoColumnsLayout = styled.div`
         flex-basis: 570px;
       }
       #companyInfo {
+        p {
+          font-size: 16px;
+        }
         width: 340px;
         @media screen and (max-width: 1023px) {
           width: auto;
