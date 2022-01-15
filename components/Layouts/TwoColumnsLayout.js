@@ -56,7 +56,7 @@ const TwoColumnsLayout = styled.div`
         padding: 40px 0 80px;
       }
       h1 {
-        padding: 152px 0 89px;
+        padding: 132px 0 59px;
         @media screen and (max-width: 1023px) {
           padding: 40px 0;
           margin: 0;

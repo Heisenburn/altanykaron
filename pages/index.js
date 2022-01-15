@@ -1,11 +1,10 @@
 import Link from "next/link";
-import Layout from "../components/Layouts/MainLayout";
+import MainLayout from "../components/Layouts/MainLayout";
 import styled from "styled-components";
 import altanyData from "../data.json";
 import TwoColumnsLayout from "../components/Layouts/TwoColumnsLayout";
 import Image from "next/image";
-import Button from "../components/Button/button";
-import Container from "../globalStyles/globalContainer.theme";
+import Button from "../components/Button/Button";
 import Listing from "../components/Listing/Listing";
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
@@ -19,13 +18,11 @@ export async function getStaticProps() {
   };
 }
 
-const Home =({ dataFromStaticProps }) =>{
-
-
+const Home = ({ dataFromStaticProps }) => {
   const isDesktop = checkIfDesktop();
 
   return (
-    <Layout isHome>
+    <MainLayout isHome={true}>
       {!isDesktop ? <Navigation /> : null}
       <HomeContainer>
         <TwoColumnsLayout className="heroSectionColumns">
@@ -54,7 +51,7 @@ const Home =({ dataFromStaticProps }) =>{
             </div>
           </div>
           <HeroSection className="column heroSection">
-            <Container>
+            <div className="globalMargin">
               {isDesktop ? <Navigation /> : null}
 
               <h1>Najlepsze altany drewniane w województwie śląskim</h1>
@@ -67,12 +64,12 @@ const Home =({ dataFromStaticProps }) =>{
               <Link href={"#oferty"} passHref>
                 <Button>ZOBACZ OFERTY </Button>
               </Link>
-            </Container>
+            </div>
           </HeroSection>
         </TwoColumnsLayout>
         <TwoColumnsLayout columnReverse className="heroSectionColumns">
           <div className="column" id="heroDescription">
-            <Container>
+            <div className="globalMargin">
               <h1>Jakość i precyzja</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
@@ -86,7 +83,7 @@ const Home =({ dataFromStaticProps }) =>{
                 Vestibulum luctus, quam non mollis tempus, arcu ante molestie
                 sapien, tempus faucibus orci elit rutrum metus.
               </p>
-            </Container>
+            </div>
           </div>
           <div className="column imgColumn">
             <div className="imageWrapper">
@@ -101,49 +98,42 @@ const Home =({ dataFromStaticProps }) =>{
             </div>
           </div>
         </TwoColumnsLayout>
-        <div id="ofertaIntro">
-          <Container>
-            <span className="borderBox"></span>
-            <h4>OFERTA</h4>
-            <span className="borderBox"></span>
-          </Container>
+        <div className="globalPadding" id="ofertaIntro">
+          <span className="borderBox"></span>
+          <h4>OFERTA</h4>
+          <span className="borderBox"></span>
         </div>
         <Listing id="oferta" dataFromStaticProps={dataFromStaticProps} />
       </HomeContainer>
-    </Layout>
+    </MainLayout>
   );
-}
+};
 
 export default Home;
 
 const HomeContainer = styled.div`
-  
   .imageWrapper {
     position: relative;
     height: 100% !important;
   }
 
   #ofertaIntro {
-    & > div {
-      height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .borderBox {
-        height: 70%;
-        width: 50px;
-        display: block;
-        align-self: flex-end !important;
-        &:first-of-type {
-          border-left: 1px solid white;
-          border-top: 1px solid white;
-        }
-        &:nth-of-type(2) {
-          border-right: 1px solid white;
-          border-top: 1px solid white;
-        }
+    .borderBox {
+      height: 70%;
+      width: 50px;
+      display: block;
+      align-self: flex-end !important;
+      &:first-of-type {
+        border-left: 1px solid white;
+        border-top: 1px solid white;
+      }
+      &:nth-of-type(2) {
+        border-right: 1px solid white;
+        border-top: 1px solid white;
       }
     }
     color: white;

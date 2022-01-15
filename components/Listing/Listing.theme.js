@@ -116,19 +116,16 @@ const ListingWrapper = styled.div`
       bottom: 23px;
       right: 38px;
       text-decoration: none;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-        
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       @media screen and (max-width: 1023px) {
         position: static;
         padding: 0;
         width: 100%;
       }
-
-      
     }
   }
 `;

@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const Nav = styled.nav`
+  z-index: 999999999999;
+
   ul {
     list-style: none;
 
@@ -9,8 +11,8 @@ const Nav = styled.nav`
       font-size: 16px;
       text-transform: uppercase;
       cursor: pointer;
-      
-      a{
+
+      a {
         color: white;
         text-decoration: none;
       }
@@ -19,7 +21,9 @@ const Nav = styled.nav`
 `;
 
 export const NavigationDesktop = styled.nav`
-  ${({ isHome }) => isHome ?  `
+  ${({ isHome, theme }) =>
+    isHome
+      ? `
   margin: 0;
   padding-top: 68px;
   ul {
@@ -37,17 +41,34 @@ export const NavigationDesktop = styled.nav`
       text-transform: uppercase;
     }
   }
-  ` : `
-  background: blue;
   `
-};
+      : `
+    
+    display: block;
+    background-color: ${theme.brown};
+    position: fixed;
+    width: 100vw;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    
+    ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    padding: 0 90px
+      }
+    }
+  `};
 `.withComponent(Nav);
 
 export const NavigationMobile = styled.nav`
   padding: 20px;
   position: fixed;
   width: 100vw;
-  z-index: 999999999999;
   background-color: ${({ theme }) => theme.brown};
   display: flex;
   justify-content: space-between;
@@ -97,9 +118,6 @@ export const NavigationMobile = styled.nav`
     height: 24px;
     position: relative;
     background-color: transparent;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
     transform: rotate(0deg);
     -webkit-transition: 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
@@ -117,9 +135,6 @@ export const NavigationMobile = styled.nav`
       border-radius: 9px;
       opacity: 1;
       left: 0;
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
       transform: rotate(0deg);
       -webkit-transition: 0.25s ease-in-out;
       -moz-transition: 0.25s ease-in-out;
@@ -142,21 +157,15 @@ export const NavigationMobile = styled.nav`
 
     &.open span:nth-child(1) {
       top: 18px;
-      width: 0%;
+      width: 0;
       left: 50%;
     }
 
     &.open span:nth-child(2) {
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
       transform: rotate(45deg);
     }
 
     &.open span:nth-child(3) {
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
 
@@ -165,5 +174,12 @@ export const NavigationMobile = styled.nav`
       width: 0%;
       left: 50%;
     }
+  }
+`.withComponent(Nav);
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    overflow: ${({ isNavMobileExpanded }) =>
+      isNavMobileExpanded ? "hidden" : "auto"};
   }
 `;

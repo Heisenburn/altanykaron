@@ -1,4 +1,3 @@
-import Container from "../../globalStyles/globalContainer.theme";
 import theme from "../../globalStyles/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
@@ -8,7 +7,7 @@ export default function Footer() {
     <ThemeProvider theme={theme}>
       <FooterContainer>
         <footer>
-          <Container>
+          <div className="globalMargin">
             <TwoColumnsLayout className="footerColumns">
               <div className="column">
                 <div id="companyInfo">
@@ -65,9 +64,9 @@ export default function Footer() {
                 </div>
               </div>
             </TwoColumnsLayout>
-          </Container>
+          </div>
           <div className="icons">
-            <Container>
+            <div className="globalMargin">
               <div className="icon">
                 <Image
                   src="/images/icons/certificate.svg"
@@ -95,13 +94,13 @@ export default function Footer() {
                 />
                 <p>Wysoka jakość</p>
               </div>
-            </Container>
+            </div>
           </div>
-          <Container>
+          <div className="globalMargin">
             <p id="copyright">
               Copyright © 2021 altanykaron.pl. All rights reserved.
             </p>
-          </Container>
+          </div>
         </footer>
       </FooterContainer>
     </ThemeProvider>

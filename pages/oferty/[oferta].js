@@ -1,9 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../../components/Layouts/MainLayout";
+import MainLayout from "../../components/Layouts/MainLayout";
 import altanyData from "../../data.json";
-
 
 //needed for getting data at build time
 export async function getStaticProps() {
@@ -31,7 +30,7 @@ export default function Page({ dataFromStaticProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
+      <MainLayout>
         {/* <h1 className="title">{matchedAltanaFromJSON.name}</h1>
         <p>{matchedAltanaFromJSON.daneTechniczne.dodatkoweInfo}</p> */}
 
@@ -45,9 +44,7 @@ export default function Page({ dataFromStaticProps }) {
         <Link href="/">
           <a>Back to home</a>
         </Link>
-      </Layout>
+      </MainLayout>
     </>
   );
 }
-
-
