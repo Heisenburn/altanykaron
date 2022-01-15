@@ -40,14 +40,15 @@ export const DesktopSecondaryNavigation = styled.nav`
     height: 90px;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 90px;
 
       ul {
         display: flex;
         justify-content: space-between;
         margin: 0;
         width: 60%;
-        padding: 0 90px
       }
     }
 `;

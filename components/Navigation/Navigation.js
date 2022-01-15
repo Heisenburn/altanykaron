@@ -47,7 +47,7 @@ export const Navigation = ({ isHome = true }) => {
     setNavMobileExpanded((prevState) => !prevState);
   };
 
-  const getNavigationWrappers = (isHome) => {
+  const getNavigationWrapper = (isHome) => {
     if (isHome) {
       return NavigationHome;
     } else {
@@ -55,10 +55,21 @@ export const Navigation = ({ isHome = true }) => {
     }
   };
 
-  const NavigationDesktop = getNavigationWrappers(isHome);
+  const NavigationDesktop = getNavigationWrapper(isHome);
 
   return isDesktop ? (
-    <NavigationDesktop>{getNavJSX()}</NavigationDesktop>
+    <NavigationDesktop>
+      {!isHome ? (
+        <Image
+          src="/images/logo-white-letters.svg"
+          width={130}
+          height={20}
+          layout="fixed"
+          alt="logo strony"
+        />
+      ) : null}
+      {getNavJSX()}
+    </NavigationDesktop>
   ) : (
     <>
       <GlobalStyle isNavMobileExpanded={isNavMobileExpanded} />
