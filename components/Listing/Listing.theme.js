@@ -74,12 +74,13 @@ const ListingWrapper = styled.div`
       height: 270px !important;
       @media screen and (max-width: 1023px) {
         width: 100%;
+        height: 170px !important;
       }
       & > div {
         width: 307px;
         height: 100%;
         @media screen and (max-width: 1023px) {
-          height: 208px;
+          height: 170px;
           width: auto;
         }
       }
