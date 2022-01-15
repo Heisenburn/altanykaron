@@ -61,7 +61,7 @@ const Home = ({ dataFromStaticProps }) => {
                 zadowolonych klientów z których wiele jest z polecenia.
               </p>
 
-              <Link href={"#oferty"} passHref>
+              <Link href={"#oferta"} passHref>
                 <Button>ZOBACZ OFERTY </Button>
               </Link>
             </div>

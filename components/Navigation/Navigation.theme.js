@@ -1,36 +1,14 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
-const Nav = styled.nav`
+const commonStyles = css`
   z-index: 999999999999;
 
   ul {
-    list-style: none;
-
-    li {
-      font-weight: 600;
-      font-size: 16px;
-      text-transform: uppercase;
-      cursor: pointer;
-
-      a {
-        color: white;
-        text-decoration: none;
-      }
+    @media screen and (min-width: 1023px) {
+      display: flex;
+      justify-content: space-between;
     }
-  }
-`;
-
-export const NavigationDesktop = styled.nav`
-  ${({ isHome, theme }) =>
-    isHome
-      ? `
-  margin: 0;
-  padding-top: 68px;
-  ul {
-    justify-content: space-between;
-    display: flex;
     list-style: none;
-    color: white;
     width: 100%;
     padding-left: 0;
 
@@ -39,40 +17,48 @@ export const NavigationDesktop = styled.nav`
       font-weight: 600;
       font-size: 16px;
       text-transform: uppercase;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
-  `
-      : `
-    
-    display: block;
-    background-color: ${theme.brown};
+`;
+
+export const NavigationHome = styled.nav`
+  margin: 0;
+  padding-top: 68px;
+  ${commonStyles};
+`;
+
+export const DesktopSecondaryNavigation = styled.nav`
+    ${commonStyles};
+    background-color: ${({ theme }) => theme.brown};
     position: fixed;
     width: 100vw;
     height: 90px;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    
-    ul {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    width: 60%;
-    padding: 0 90px
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        width: 60%;
+        padding: 0 90px
       }
     }
-  `};
-`.withComponent(Nav);
+`;
 
-export const NavigationMobile = styled.nav`
+export const MobileSecondaryNavigation = styled.nav`
   padding: 20px;
   position: fixed;
   width: 100vw;
+  ${commonStyles};
+
   background-color: ${({ theme }) => theme.brown};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 0.15);
   flex-direction: ${({ isNavMobileExpanded }) =>
     isNavMobileExpanded ? "column" : ""};
@@ -175,7 +161,7 @@ export const NavigationMobile = styled.nav`
       left: 50%;
     }
   }
-`.withComponent(Nav);
+`;
 
 export const GlobalStyle = createGlobalStyle`
   body {

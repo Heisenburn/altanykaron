@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { checkIfDesktop } from "../../hooks/checkIfDesktop";
 import {
-  NavigationMobile,
-  NavigationDesktop,
+  MobileSecondaryNavigation,
+  NavigationHome,
   GlobalStyle,
+  DesktopSecondaryNavigation,
 } from "./Navigation.theme";
 import { useState } from "react";
 
@@ -35,6 +36,8 @@ const getNavJSX = (handleHashClick) => {
   );
 };
 
+//TODO: używaj useCallBack
+
 export const Navigation = ({ isHome = true }) => {
   const isDesktop = checkIfDesktop();
 
@@ -44,12 +47,22 @@ export const Navigation = ({ isHome = true }) => {
     setNavMobileExpanded((prevState) => !prevState);
   };
 
+  const getNavigationWrappers = (isHome) => {
+    if (isHome) {
+      return NavigationHome;
+    } else {
+      return DesktopSecondaryNavigation;
+    }
+  };
+
+  const NavigationDesktop = getNavigationWrappers(isHome);
+
   return isDesktop ? (
-    <NavigationDesktop isHome={isHome}>{getNavJSX()}</NavigationDesktop>
+    <NavigationDesktop>{getNavJSX()}</NavigationDesktop>
   ) : (
     <>
       <GlobalStyle isNavMobileExpanded={isNavMobileExpanded} />
-      <NavigationMobile isNavMobileExpanded={isNavMobileExpanded}>
+      <MobileSecondaryNavigation isNavMobileExpanded={isNavMobileExpanded}>
         <div id="nav-logo-and-hamburger">
           <Image
             src="/images/logo-white-letters.svg"
@@ -71,7 +84,7 @@ export const Navigation = ({ isHome = true }) => {
         </div>
 
         {isNavMobileExpanded ? getNavJSX(handleMobileNavClick) : null}
-      </NavigationMobile>
+      </MobileSecondaryNavigation>
     </>
   );
 };

@@ -50,7 +50,7 @@ const Listing = ({ dataFromStaticProps, id }) => {
                         passHref
                         key={ID}
                         href={
-                          "oferty/" + name.toLowerCase().replace(/\s+/g, "-")
+                          "oferta/" + name.toLowerCase().replace(/\s+/g, "-")
                         }
                       >
                         <a className="priceButton">WIĘCEJ</a>
