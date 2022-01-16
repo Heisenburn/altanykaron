@@ -1,6 +1,6 @@
-import { useWindowSize } from "../hooks/getWindowSize";
+import { useWindowSize } from "./useWindowSize";
 
-export const checkIfDesktop = () => {
+export const useIsDesktop = () => {
   const size = useWindowSize();
   if (size.width >= 1023) {
     return true;

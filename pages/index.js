@@ -9,7 +9,8 @@ import Listing from "../components/Listing/Listing";
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
 import { Navigation } from "../components/Navigation/Navigation";
-import { checkIfDesktop } from "../hooks/checkIfDesktop";
+import { useIsDesktop } from "../hooks/useIsDesktop";
+import { useEffect, useState } from "react";
 
 export async function getStaticProps() {
   //get data at build time
@@ -19,7 +20,21 @@ export async function getStaticProps() {
 }
 
 const Home = ({ dataFromStaticProps }) => {
-  const isDesktop = checkIfDesktop();
+  const isDesktop = useIsDesktop();
+  const [imageScale, setImageScale] = useState(1.0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setImageScale((window.scrollY + 10000) / 100);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <MainLayout isHome={true}>
@@ -39,7 +54,7 @@ const Home = ({ dataFromStaticProps }) => {
               ) : null}
             </div>
 
-            <div className="imageWrapper">
+            <ScrollableImage className="imageWrapper" zoom={imageScale}>
               <Image
                 quality={1}
                 alt=""
@@ -48,7 +63,7 @@ const Home = ({ dataFromStaticProps }) => {
                 objectFit="cover"
                 placeholder="blur"
               />
-            </div>
+            </ScrollableImage>
           </div>
           <HeroSection className="column heroSection">
             <div className="globalMargin">
@@ -86,7 +101,7 @@ const Home = ({ dataFromStaticProps }) => {
             </div>
           </div>
           <div className="column imgColumn">
-            <div className="imageWrapper">
+            <ScrollableImage className="imageWrapper" zoom={imageScale}>
               <Image
                 quality={1}
                 alt=""
@@ -95,7 +110,7 @@ const Home = ({ dataFromStaticProps }) => {
                 objectFit="cover"
                 placeholder="blur"
               />
-            </div>
+            </ScrollableImage>
           </div>
         </TwoColumnsLayout>
         <div className="globalPadding" id="ofertaIntro">
@@ -172,5 +187,11 @@ const HeroSection = styled.div`
     margin: 0;
     color: white;
     padding-bottom: 70px;
+  }
+`;
+
+const ScrollableImage = styled.div`
+  img {
+    transform: ${({ zoom }) => `scale(${zoom / 100})`};
   }
 `;

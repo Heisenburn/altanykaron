@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { checkIfDesktop } from "../../hooks/checkIfDesktop";
+import { useIsDesktop } from "../../hooks/useIsDesktop";
 import {
   MobileSecondaryNavigation,
   NavigationHome,
@@ -39,7 +39,7 @@ const getNavJSX = (handleHashClick) => {
 //TODO: używaj useCallBack
 
 export const Navigation = ({ isHome = true }) => {
-  const isDesktop = checkIfDesktop();
+  const isDesktop = useIsDesktop();
 
   const [isNavMobileExpanded, setNavMobileExpanded] = useState(false);
 
