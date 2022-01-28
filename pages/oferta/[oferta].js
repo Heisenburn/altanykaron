@@ -31,16 +31,7 @@ export default function Page({ dataFromStaticProps }) {
       </Head>
 
       <MainLayout>
-        {/* <h1 className="title">{matchedAltanaFromJSON.name}</h1>
-        <p>{matchedAltanaFromJSON.daneTechniczne.dodatkoweInfo}</p> */}
-
-        <Image
-          src="/images/test.jpg"
-          height={500} // Desired size with correct aspect ratio
-          width={900} // Desired size with correct aspect ratio
-          alt="Your Name"
-        />
-
+        <h1>In progress...</h1>
         <Link href="/">
           <a>Back to home</a>
         </Link>
