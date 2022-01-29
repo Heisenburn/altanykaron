@@ -6,7 +6,6 @@
       "shortDescription": "Wymiar altany 450 x 300 cm",
       "price": 1500,
       "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
       "technicalDetails": {
         "wymiary": "300x400",
         "wysokośc": "310",
@@ -23,109 +22,6 @@
       "shortDescription": "Wymiar altany 220 x 300 cm",
       "price": 3500,
       "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
-      "technicalDetails": {
-        "wymiary": "300x400",
-        "wysokośc": "310",
-        "kat": 27,
-        "Impregnacja": "Lakier Drewnochron",
-        "dostepneKolory": "",
-        "typDachowki": "",
-        "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
-      }
-    },
-    {
-      "name": "Altana Ogroda A1",
-      "ID": "A1",
-      "shortDescription": "Wymiar altany 300 x 300 cm",
-      "price": 1500,
-      "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
-      "technicalDetails": {
-        "wymiary": "300x400",
-        "wysokośc": "310",
-        "kat": 27,
-        "Impregnacja": "Lakier Drewnochron",
-        "dostepneKolory": "",
-        "typDachowki": "",
-        "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
-      }
-    },
-    {
-      "name": "Altana Ogroda A2",
-      "ID": "A2",
-      "shortDescription": "Wymiar altany 300 x 300 cm",
-      "price": 3500,
-      "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
-      "technicalDetails": {
-        "wymiary": "300x400",
-        "wysokośc": "310",
-        "kat": 27,
-        "Impregnacja": "Lakier Drewnochron",
-        "dostepneKolory": "",
-        "typDachowki": "",
-        "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
-      }
-    },
-    {
-      "name": "Altana Ogroda A1",
-      "ID": "A1",
-      "shortDescription": "Wymiar altany 300 x 300 cm",
-      "price": 1500,
-      "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
-      "technicalDetails": {
-        "wymiary": "300x400",
-        "wysokośc": "310",
-        "kat": 27,
-        "Impregnacja": "Lakier Drewnochron",
-        "dostepneKolory": "",
-        "typDachowki": "",
-        "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
-      }
-    },
-    {
-      "name": "Altana Ogroda A2",
-      "ID": "A2",
-      "shortDescription": "Wymiar altany 300 x 300 cm",
-      "price": 3500,
-      "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
-      "technicalDetails": {
-        "wymiary": "300x400",
-        "wysokośc": "310",
-        "kat": 27,
-        "Impregnacja": "Lakier Drewnochron",
-        "dostepneKolory": "",
-        "typDachowki": "",
-        "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
-      }
-    },
-    {
-      "name": "Altana Ogroda A1",
-      "ID": "A1",
-      "shortDescription": "Wymiar altany 300 x 300 cm",
-      "price": 1500,
-      "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
-      "technicalDetails": {
-        "wymiary": "300x400",
-        "wysokośc": "310",
-        "kat": 27,
-        "Impregnacja": "Lakier Drewnochron",
-        "dostepneKolory": "",
-        "typDachowki": "",
-        "dodatkoweInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
-      }
-    },
-    {
-      "name": "Altana Ogroda A2",
-      "ID": "A2",
-      "shortDescription": "Wymiar altany 300 x 300 cm",
-      "price": 3500,
-      "thumbnail": "",
-      "offerImageDirectory": "/images/offers/",
       "technicalDetails": {
         "wymiary": "300x400",
         "wysokośc": "310",
@@ -136,5 +32,6 @@
         "dodatkoweInfo": "s kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon"
       }
     }
+    
   ]
 }

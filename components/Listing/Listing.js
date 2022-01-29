@@ -17,49 +17,38 @@ const Listing = ({ dataFromStaticProps, id }) => {
         <ul>
           {dataFromStaticProps["altanyData"]
             .slice(0, numberOfElementsToRender)
-            .map(
-              ({
-                name,
-                ID,
-                shortDescription,
-                price,
-                url,
-                offerImageDirectory,
-              }) => {
-                return (
-                  <li key={ID}>
-                    <div className="imageWrapper">
-                      <Image
-                        quality={1}
-                        src={`${offerImageDirectory}${ID}/mainPhoto.jpeg`}
-                        width={307}
-                        height={270}
-                        layout="responsive"
-                        alt={`zdjecie oferty: ${name}`}
-                      />
-                    </div>
-                    <div className="listingItem-data">
-                      <h3 key={name}>{name}</h3>
-                      <p>{shortDescription}</p>
-                      <p>
-                        <strong>{price} zł</strong>
-                      </p>
-                      {/* tu sie upewnic czy link taki sam serwer i klient */}
+            .map(({ name, ID, shortDescription, price }) => {
+              return (
+                <li key={ID}>
+                  <div className="imageWrapper">
+                    <Image
+                      quality={1}
+                      src={`/images/offers/${ID}/mainPhoto.jpeg`}
+                      width={307}
+                      height={270}
+                      layout="responsive"
+                      alt={`zdjecie oferty: ${name}`}
+                    />
+                  </div>
+                  <div className="listingItem-data">
+                    <h3 key={name}>{name}</h3>
+                    <p>{shortDescription}</p>
+                    <p>
+                      <strong>{price} zł</strong>
+                    </p>
+                    {/* tu sie upewnic czy link taki sam serwer i klient */}
 
-                      <Link
-                        passHref
-                        key={ID}
-                        href={
-                          "oferta/" + name.toLowerCase().replace(/\s+/g, "-")
-                        }
-                      >
-                        <a className="priceButton">WIĘCEJ</a>
-                      </Link>
-                    </div>
-                  </li>
-                );
-              }
-            )}
+                    <Link
+                      passHref
+                      key={ID}
+                      href={`oferta/altana-ogrodowa?id=${ID}`}
+                    >
+                      <a className="priceButton">WIĘCEJ</a>
+                    </Link>
+                  </div>
+                </li>
+              );
+            })}
         </ul>
         <div className="triangle"></div>
         {!isListingExpanded ? (
