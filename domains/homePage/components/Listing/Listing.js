@@ -2,7 +2,7 @@ import ListingWrapper from "./Listing.theme";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../Button/Button";
+import Button from "../../../shared/components/Button/Button";
 const Listing = ({ dataFromStaticProps, id }) => {
   const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
   const [isListingExpanded, setListingExpanded] = useState(false);
@@ -13,20 +13,19 @@ const Listing = ({ dataFromStaticProps, id }) => {
   return (
     <ListingWrapper id={id}>
       <div className="globalMargin">
-        {/* TODO! tu problemy w konsoli zobacz */}
         <ul>
           {dataFromStaticProps["altanyData"]
             .slice(0, numberOfElementsToRender)
             .map(({ name, ID, shortDescription, price }) => {
               return (
                 <li key={ID}>
-                  <div className="imageWrapper">
+                  <div className="image-container">
                     <Image
-                      quality={1}
                       src={`/images/offers/${ID}/mainPhoto.jpeg`}
                       width={307}
                       height={270}
                       layout="responsive"
+                      objectFit="cover"
                       alt={`zdjecie oferty: ${name}`}
                     />
                   </div>
@@ -36,12 +35,10 @@ const Listing = ({ dataFromStaticProps, id }) => {
                     <p>
                       <strong>{price} zł</strong>
                     </p>
-                    {/* tu sie upewnic czy link taki sam serwer i klient */}
-
                     <Link
                       passHref
                       key={ID}
-                      href={`oferta/altana-ogrodowa?id=${ID}`}
+                      href={"oferta/" + name.toLowerCase().replace(/\s+/g, "-")}
                     >
                       <a className="priceButton">WIĘCEJ</a>
                     </Link>
@@ -51,12 +48,12 @@ const Listing = ({ dataFromStaticProps, id }) => {
             })}
         </ul>
         <div className="triangle"></div>
-        {!isListingExpanded ? (
+        {!isListingExpanded && dataFromStaticPropsLength > 4 ? (
           <Button
             className="seeAllOffers"
             onClick={() => setListingExpanded(true)}
           >
-            {"Zobacz pozostałe oferty"}
+            Zobacz pozostałe oferty
           </Button>
         ) : null}
       </div>

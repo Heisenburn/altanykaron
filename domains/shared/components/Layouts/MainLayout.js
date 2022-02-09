@@ -1,5 +1,5 @@
 import { Navigation } from "../Navigation/Navigation";
-import theme from "../../globalStyles/theme";
+import theme from "../../../../globalStyles/theme";
 import { ThemeProvider } from "styled-components";
 import Footer from "../Footer/Footer";
 

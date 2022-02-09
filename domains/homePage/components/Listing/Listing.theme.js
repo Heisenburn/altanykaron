@@ -68,25 +68,18 @@ const ListingWrapper = styled.div`
       padding: 0;
       margin: 97px 0;
     }
-
-    .imageWrapper {
-      width: 307px;
+ 
+    .image-container {
+      width: 307px !important;
       height: 270px !important;
-      @media screen and (max-width: 1023px) {
-        width: 100%;
-        height: 170px !important;
+      
+      & > *{
+   
+        width: 307px !important;
+        height: 270px !important;
       }
-      & > div {
-        width: 307px;
-        height: 100%;
-        @media screen and (max-width: 1023px) {
-          height: 170px;
-          width: auto;
-        }
-      }
-      img {
-        object-fit: cover;
-      }
+    
+    }
     }
 
     .listingItem-data {

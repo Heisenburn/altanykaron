@@ -1,14 +1,14 @@
 import Link from "next/link";
-import MainLayout from "../components/Layouts/MainLayout";
+import MainLayout from "../domains/shared/components/Layouts/MainLayout";
 import styled from "styled-components";
 import altanyData from "../data.json";
-import TwoColumnsLayout from "../components/Layouts/TwoColumnsLayout";
+import TwoColumnsLayout from "../domains/homePage/components/Layouts/TwoColumnsLayout";
 import Image from "next/image";
-import Button from "../components/Button/Button";
-import Listing from "../components/Listing/Listing";
+import Button from "../domains/shared/components/Button/Button";
+import Listing from "../domains/homePage/components/Listing/Listing";
 import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
-import { Navigation } from "../components/Navigation/Navigation";
+import { Navigation } from "../domains/shared/components/Navigation/Navigation";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import { useEffect, useState } from "react";
 
@@ -45,7 +45,7 @@ const Home = ({ dataFromStaticProps }) => {
             <div className="logo">
               {isDesktop ? (
                 <Image
-                  quality={1}
+                  quality={50}
                   src="/images/logo.svg"
                   width={250}
                   height={50}
@@ -56,7 +56,7 @@ const Home = ({ dataFromStaticProps }) => {
 
             <ScrollableImage className="imageWrapper" zoom={imageScale}>
               <Image
-                quality={1}
+                quality={50}
                 alt=""
                 src={IMG_6697}
                 layout="fill"
@@ -103,7 +103,7 @@ const Home = ({ dataFromStaticProps }) => {
           <div className="column imgColumn">
             <ScrollableImage className="imageWrapper" zoom={imageScale}>
               <Image
-                quality={1}
+                quality={50}
                 alt=""
                 src={IMG_6448}
                 layout="fill"
@@ -159,11 +159,10 @@ const HomeContainer = styled.div`
 
 const HeroSection = styled.div`
   background-color: ${({ theme }) => theme.brown};
-  background-image: url("/images/triangles.svg");
-
-  background-position: bottom;
+  background-image: url("data:image/svg+xml,%3Csvg width='720' height='236' viewBox='0 0 720 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L720 236H0V0Z' fill='%23928583' fill-opacity='0.4'/%3E%3Cpath d='M720 0L-6.10352e-05 236H720V0Z' fill='%23928583' fill-opacity='0.4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-position: bottom;
+  background-size: 100%;
 
   @media screen and (max-width: 1023px) {
     button {

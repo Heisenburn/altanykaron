@@ -1,7 +1,7 @@
-import theme from "../../globalStyles/theme";
+import theme from "../../../../globalStyles/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
-import TwoColumnsLayout from "../Layouts/TwoColumnsLayout";
+import TwoColumnsLayout from "../../../homePage/components/Layouts/TwoColumnsLayout";
 export default function Footer() {
   return (
     <ThemeProvider theme={theme}>

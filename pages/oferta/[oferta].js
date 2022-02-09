@@ -1,8 +1,11 @@
 import Head from "next/head";
-import MainLayout from "../../components/Layouts/MainLayout";
+import MainLayout from "../../domains/shared/components/Layouts/MainLayout";
 import altanyData from "../../data.json";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
+import SliderWrapper from "../../domains/offerPage/Slider/SliderWrapper.theme";
+import Heading from "../../domains/offerPage/Heading.theme";
+
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
   const { oferta } = params;
@@ -45,6 +48,10 @@ export default function Page({
     });
   };
 
+  const [altanyItem] = dataFromStaticProps["altanyData"].filter(
+    (item) => item.ID === idFromURL.toUpperCase()
+  );
+
   return (
     <>
       <Head>
@@ -53,8 +60,19 @@ export default function Page({
       </Head>
 
       <MainLayout>
-        {/* <h1>{dataFromStaticProps.name}</h1> */}
-        <ImageGallery items={getImageSet()}></ImageGallery>
+        <SliderWrapper>
+          <Heading>
+            <h1>{altanyItem.name}</h1>
+            <p>Cena: 2500zł</p>
+          </Heading>
+          <ImageGallery
+            items={getImageSet()}
+            showPlayButton={false}
+            lazyLoad={true}
+            useBrowserFullscreen={false}
+            useTranslate3D={true}
+          />
+        </SliderWrapper>
       </MainLayout>
     </>
   );
