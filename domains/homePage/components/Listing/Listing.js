@@ -8,7 +8,7 @@ const Listing = ({ dataFromStaticProps, id }) => {
   const [isListingExpanded, setListingExpanded] = useState(false);
   const numberOfElementsToRender = isListingExpanded
     ? dataFromStaticPropsLength
-    : 5;
+    : 4;
 
   return (
     <ListingWrapper id={id}>

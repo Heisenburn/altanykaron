@@ -62,6 +62,7 @@ const Home = ({ dataFromStaticProps }) => {
                 layout="fill"
                 objectFit="cover"
                 placeholder="blur"
+                priority
               />
             </ScrollableImage>
           </div>
