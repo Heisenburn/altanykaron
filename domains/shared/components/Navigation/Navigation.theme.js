@@ -64,7 +64,7 @@ export const MobileSecondaryNavigation = styled.nav`
   flex-direction: ${({ isNavMobileExpanded }) =>
     isNavMobileExpanded ? "column" : ""};
   height: ${({ isNavMobileExpanded }) =>
-    isNavMobileExpanded ? "100vh" : "auto"};
+    isNavMobileExpanded ? "100%" : "auto"};
   background-image: ${({ isNavMobileExpanded }) =>
     isNavMobileExpanded ? "url(/images/triangles.svg)" : "none"};
   background-position: bottom;
@@ -73,7 +73,7 @@ export const MobileSecondaryNavigation = styled.nav`
 
   ul {
     height: ${({ isNavMobileExpanded }) =>
-      isNavMobileExpanded ? "100vh" : "auto"};
+      isNavMobileExpanded ? "100%" : "auto"};
     list-style-type: none;
     padding: 0;
     display: flex;

@@ -5,6 +5,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import SliderWrapper from "../../domains/offerPage/Slider/SliderWrapper.theme";
 import Heading from "../../domains/offerPage/Heading.theme";
+import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
@@ -73,6 +74,7 @@ export default function Page({
             useTranslate3D={true}
           />
         </SliderWrapper>
+        <DetailsTable data={altanyItem.technicalDetails}></DetailsTable>
       </MainLayout>
     </>
   );
