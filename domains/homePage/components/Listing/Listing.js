@@ -21,7 +21,7 @@ const Listing = ({ dataFromStaticProps, id }) => {
                 <li key={ID}>
                   <div className="image-container">
                     <Image
-                      src={`/images/offers/${ID}/mainPhoto.jpeg`}
+                      src={`/images/offers/${ID.toLowerCase()}/mainPhoto.jpeg`}
                       width={307}
                       height={270}
                       layout="responsive"
