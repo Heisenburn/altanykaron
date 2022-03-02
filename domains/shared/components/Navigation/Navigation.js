@@ -14,17 +14,12 @@ const getNavJSX = (handleHashClick) => {
     <ul>
       <li>
         <Link href="/">
-          <a>home</a>
+          <a>strona główna</a>
         </Link>
       </li>
       <li>
         <Link href="/#oferta">
           <a onClick={handleHashClick}>oferta</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/galeria">
-          <a>galeria</a>
         </Link>
       </li>
       <li>

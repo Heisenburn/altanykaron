@@ -61,7 +61,7 @@ export default function Page({
       </Head>
 
       <MainLayout>
-        <SliderWrapper>
+        <SliderWrapper className="globalMargin">
           <Heading>
             <h1>{altanyItem.name}</h1>
             <p>Cena: 2500zł</p>

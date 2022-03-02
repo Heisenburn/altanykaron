@@ -48,7 +48,7 @@ export const DesktopSecondaryNavigation = styled.nav`
         display: flex;
         justify-content: space-between;
         margin: 0;
-        width: 60%;
+        width: 40%;
       }
     }
 `;
