@@ -15,13 +15,15 @@ const ListingWrapper = styled.div`
   top: 0;
 
   .seeAllOffers {
-    background: #a21c26;
+    background: #57423f;
     color: white;
     display: block;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
+    font-weight: 500;
     z-index: 9;
+    border-radius: 4px;
   }
 
   .triangle {
@@ -60,6 +62,7 @@ const ListingWrapper = styled.div`
     max-width: 1400px;
     z-index: 1;
     position: relative;
+    overflow: hidden;
 
     display: flex;
     @media screen and (max-width: 1023px) {

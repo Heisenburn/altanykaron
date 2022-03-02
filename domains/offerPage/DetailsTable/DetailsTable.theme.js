@@ -9,35 +9,45 @@ export const Container = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  align-items: center;
   border-bottom: 1px solid #0000001c;
+  align-items: center;
 
   @media screen and (max-width: 790px) {
-    flex-wrap: wrap;
     margin-bottom: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
-  img {
-    margin: 0;
+  .firstRow {
+    display: flex;
+    align-items: center;
+    min-width: 20%;
 
-    &.detailsImage {
+    .label {
+      color: #004f7b;
+      margin-left: 10px;
+    }
+
+    img {
+      margin: 0;
+    }
+  }
+
+  .secondRow {
+    img {
       width: 100%;
       object-fit: contain;
       margin: 20px;
       max-width: 530px;
     }
+
     @media screen and (min-width: 790px) {
       margin-left: 50px;
     }
-  }
 
-  div {
-    color: #004f7b;
-    margin-left: 10px;
-  }
-
-  p {
-    color: black;
-    margin-left: 20px;
+    .value {
+      color: black;
+      line-height: 35px;
+    }
   }
 `;

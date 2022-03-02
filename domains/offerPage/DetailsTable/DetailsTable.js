@@ -13,32 +13,43 @@ export const TRANSLATIONS = {
   angle: "Kąt",
 };
 
+// align-items: ${({ shouldAlignBaseline }) =>
+// shouldAlignBaseline ? "baseline" : "center"};
+
+const BASELINE_LABELS = ["availableColors", "slateType", "additionalInfo"];
+
+const shouldAlignBaseline = (label) => BASELINE_LABELS.includes(label);
+
 const DetailsTable = ({ data }) => {
   return (
     <Container className="globalMargin">
       {Object.entries(data).map(([key, value]) => {
+        const label = TRANSLATIONS[key];
         return (
-          <Row>
-            <img
-              width={27}
-              height={27}
-              src={icons[key]?.src}
-              alt={"ikona dla " + TRANSLATIONS[key]}
-            />
-            <div> {TRANSLATIONS[key]}:</div>
-
-            {key === "availableColors" || key === "slateType" ? (
+          <Row shouldAlignBaseline={shouldAlignBaseline(key)}>
+            <div className="firstRow">
               <img
-                src={
-                  key === "availableColors"
-                    ? availableColorsImage.src
-                    : slateTypeImage.src
-                }
-                className="detailsImage"
+                width={27}
+                height={27}
+                src={icons[key]?.src}
+                alt={"ikona dla " + TRANSLATIONS[key]}
               />
-            ) : (
-              <p>{value}</p>
-            )}
+              <p className="label">{label}:</p>
+            </div>
+            <div className="secondRow">
+              {key === "availableColors" || key === "slateType" ? (
+                <img
+                  src={
+                    key === "availableColors"
+                      ? availableColorsImage.src
+                      : slateTypeImage.src
+                  }
+                  className="detailsImage"
+                />
+              ) : (
+                <span className="value">{value}</span>
+              )}
+            </div>
           </Row>
         );
       })}
