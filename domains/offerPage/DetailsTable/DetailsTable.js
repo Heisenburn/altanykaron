@@ -13,20 +13,13 @@ export const TRANSLATIONS = {
   angle: "Kąt",
 };
 
-// align-items: ${({ shouldAlignBaseline }) =>
-// shouldAlignBaseline ? "baseline" : "center"};
-
-const BASELINE_LABELS = ["availableColors", "slateType", "additionalInfo"];
-
-const shouldAlignBaseline = (label) => BASELINE_LABELS.includes(label);
-
 const DetailsTable = ({ data }) => {
   return (
     <Container className="globalMargin">
       {Object.entries(data).map(([key, value]) => {
         const label = TRANSLATIONS[key];
         return (
-          <Row shouldAlignBaseline={shouldAlignBaseline(key)}>
+          <Row>
             <div className="firstRow">
               <img
                 width={27}

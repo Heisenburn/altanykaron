@@ -30,7 +30,6 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="icon" href="images/icons/favicon.svg" />
-          <title>altanykaron.pl - Domki i grzybki ogrodowe</title>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>
