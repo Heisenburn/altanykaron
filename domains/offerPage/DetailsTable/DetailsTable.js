@@ -18,16 +18,15 @@ const DetailsTable = ({ data }) => {
     <Container className="globalMargin">
       {Object.entries(data).map(([key, value]) => {
         return (
-          <Row isAdditionalInfo={key === "additionalInfo"}>
+          <Row>
             <img
               width={27}
               height={27}
               src={icons[key]?.src}
               alt={"ikona dla " + TRANSLATIONS[key]}
             />
-            <p>
-              {TRANSLATIONS[key]}: <span>{value}</span>
-            </p>
+            <div> {TRANSLATIONS[key]}:</div>
+
             {key === "availableColors" || key === "slateType" ? (
               <img
                 src={
@@ -35,11 +34,11 @@ const DetailsTable = ({ data }) => {
                     ? availableColorsImage.src
                     : slateTypeImage.src
                 }
-                width={530}
-                height={440}
-                style={{ marginLeft: 50 }}
+                className="detailsImage"
               />
-            ) : null}
+            ) : (
+              <p>{value}</p>
+            )}
           </Row>
         );
       })}

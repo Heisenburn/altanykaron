@@ -6,10 +6,6 @@ const SliderWrapper = styled.div`
   img {
     background-color: #c0c1c926;
   }
-
-  @media screen and (max-width: 1023px) {
-    width: 95%;
-  }
 `;
 
 export default SliderWrapper;

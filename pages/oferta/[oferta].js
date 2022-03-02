@@ -64,13 +64,12 @@ export default function Page({
         <SliderWrapper className="globalMargin">
           <Heading>
             <h1>{altanyItem.name}</h1>
-            <p>Cena: 2500zł</p>
+            <p style={{ textAlign: "right" }}>Cena: 2500zł</p>
           </Heading>
           <ImageGallery
             items={getImageSet()}
             showPlayButton={false}
             lazyLoad={true}
-            useBrowserFullscreen={false}
             useTranslate3D={true}
           />
         </SliderWrapper>
