@@ -18,13 +18,7 @@ export async function getStaticProps({ params }) {
   const { oferta } = params;
   const idFromURL = oferta.split("-").pop();
   const fs = require("fs");
-
-  const { resolve } = require("path");
-
-  const dir = resolve(
-    process.cwd(),
-    `public/images/offers/${idFromURL.toUpperCase()}`
-  );
+  const dir = `./public/images/offers/${idFromURL}`;
 
   const availableImagesInDirectory = fs.readdirSync(dir);
   return {
