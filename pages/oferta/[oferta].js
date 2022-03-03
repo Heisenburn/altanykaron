@@ -8,6 +8,8 @@ import Heading from "../../domains/offerPage/Heading.theme";
 import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
+import getConfig from "next/config";
+const { serverRuntimeConfig } = getConfig();
 
 // https://vercel.com/docs/runtimes#advanced-usage/technical-details/including-additional-files
 
@@ -20,12 +22,11 @@ export async function getStaticProps({ params }) {
   const path = require("path");
 
   const dir = path.join(
-    process.env.PWD,
-    "public",
-    "images",
-    "offers",
-    idFromURL.toUpperCase()
+    serverRuntimeConfig.PROJECT_ROOT,
+    `./public/images/offers/${idFromURL.toUpperCase()}`
   );
+
+  console.log(dir);
 
   const availableImagesInDirectory = fs.readdirSync(dir);
   return {
