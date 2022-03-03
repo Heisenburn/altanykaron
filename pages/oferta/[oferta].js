@@ -11,14 +11,12 @@ import Link from "next/link";
 import getConfig from "next/config";
 const { serverRuntimeConfig } = getConfig();
 
-// https://vercel.com/docs/runtimes#advanced-usage/technical-details/including-additional-files
-
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
   const { oferta } = params;
   const idFromURL = oferta.split("-").pop();
   const fs = require("fs");
-  const dir = `./public/images/offers/${idFromURL}`;
+  const dir = `./public/images/offers/${idFromURL.toUpperCase()}`;
 
   const availableImagesInDirectory = fs.readdirSync(dir);
   return {
