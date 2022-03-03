@@ -24,6 +24,10 @@ const ListingWrapper = styled.div`
     font-weight: 500;
     z-index: 9;
     border-radius: 4px;
+
+    &:hover {
+      background: ${({ theme }) => theme.blue};
+    }
   }
 
   .triangle {
