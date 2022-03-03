@@ -21,10 +21,7 @@ export async function getStaticProps({ params }) {
 
   const { join } = require("path");
 
-  const dir = join(
-    __dirname,
-    `../../../../public/images/offers/${idFromURL.toUpperCase()}`
-  );
+  const dir = join(`public/images/offers/${idFromURL.toUpperCase()}`);
 
   const availableImagesInDirectory = fs.readdirSync(dir);
   return {
