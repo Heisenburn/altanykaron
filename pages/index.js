@@ -20,7 +20,9 @@ export async function getStaticProps() {
         : name.split(" ").pop();
 
       const fs = require("fs");
-      const dir = `./public/images/offers/${dirName.toUpperCase()}`;
+      const dir = `${process.cwd()}/public/images/offers/${dirName.toUpperCase()}`;
+
+      console.log(process.cwd());
 
       return fs.readdirSync(dir);
     }
@@ -34,8 +36,6 @@ export async function getStaticProps() {
 const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
   const isDesktop = useIsDesktop();
   const [imageScale, setImageScale] = useState(1.0);
-
-  console.log(availableImagesInDirectory);
 
   useEffect(() => {
     const handleScroll = () => {
