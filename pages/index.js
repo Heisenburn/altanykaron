@@ -20,9 +20,7 @@ export async function getStaticProps() {
         : name.split(" ").pop();
 
       const fs = require("fs");
-      const dir = `${process.cwd()}/public/images/offers/${dirName.toUpperCase()}`;
-
-      console.log(process.cwd());
+      const dir = `public/images/offers/${dirName.toUpperCase()}`;
 
       return fs.readdirSync(dir);
     }
