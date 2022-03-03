@@ -2,7 +2,6 @@
   "altanyData": [
     {
       "name": "Altana Ogrodowa A1",
-      "ID": "A1",
       "shortDescription": "Wymiar altany 450 x 300 cm",
       "price": 1500,
       "thumbnail": "",
@@ -18,7 +17,6 @@
     },
     {
       "name": "Altana Ogrodowa A2",
-      "ID": "A2",
       "shortDescription": "Wymiar altany 220 x 300 cm",
       "price": 3500,
       "thumbnail": "",
@@ -34,7 +32,6 @@
     }
     ,{
       "name": "Altana Ogrodowa A3",
-      "ID": "A3",
       "shortDescription": "Wymiar altany 220 x 300 cm",
       "price": 3500,
       "thumbnail": "",
@@ -50,7 +47,6 @@
     },
     {
       "name": "Altana Ogrodowa A4",
-      "ID": "A4",
       "shortDescription": "Wymiar altany 220 x 300 cm",
       "price": 3500,
       "thumbnail": "",
@@ -66,7 +62,261 @@
     },
     {
       "name": "Altana Ogrodowa A5",
-      "ID": "A5",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa A6",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa A7",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa A8",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa A9",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa B1",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa B2",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa B3",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa B4",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa C1",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa C2",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa C3",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa C4",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Ogrodowa C5",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana klasyczna",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Vera",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Altana Wiktoria",
+      "shortDescription": "Wymiar altany 220 x 300 cm",
+      "price": 3500,
+      "thumbnail": "",
+      "technicalDetails": {
+        "dimensions": "300cm x 400cm",
+        "height": "310cm",
+        "angle": "27°",
+        "woodFinishing": "Lakier Drewnochron",
+        "availableColors": "",
+        "slateType": "",
+        "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
+      }
+    },
+    {
+      "name": "Wiata Garażowa",
       "shortDescription": "Wymiar altany 220 x 300 cm",
       "price": 3500,
       "thumbnail": "",
@@ -80,6 +330,5 @@
         "additionalInfo": "Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. Pokryta gontem bitumicznym dostępnym w różnych kolorach. Za dodatkową opłatą wykonamy podłogę wykonaną  z desek calowych o gęst umieszczon Pokryta gontem bitumicznym dostępnym w różnych kolorach. "
       }
     }
-    
   ]
 }

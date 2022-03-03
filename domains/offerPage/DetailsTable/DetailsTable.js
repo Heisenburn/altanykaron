@@ -19,7 +19,7 @@ const DetailsTable = ({ data }) => {
       {Object.entries(data).map(([key, value]) => {
         const label = TRANSLATIONS[key];
         return (
-          <Row>
+          <Row key={key}>
             <div className="firstRow">
               <img
                 width={27}

@@ -36,8 +36,6 @@ const getNavJSX = (handleHashClick) => {
   );
 };
 
-//TODO: używaj useCallBack
-
 export const Navigation = ({ isHome = true }) => {
   const isDesktop = useIsDesktop();
 

@@ -13,15 +13,29 @@ import { useIsDesktop } from "../hooks/useIsDesktop";
 import { useEffect, useState } from "react";
 
 export async function getStaticProps() {
-  //get data at build time
+  const availableImagesInDirectory = altanyData["altanyData"].map(
+    ({ name }) => {
+      const dirName = name.includes("-")
+        ? name.split("-").pop()
+        : name.split(" ").pop();
+
+      const fs = require("fs");
+      const dir = `./public/images/offers/${dirName}`;
+
+      return fs.readdirSync(dir);
+    }
+  );
+
   return {
-    props: { dataFromStaticProps: altanyData }, // will be passed to the page component as props
+    props: { dataFromStaticProps: altanyData, availableImagesInDirectory }, // will be passed to the page component as props
   };
 }
 
-const Home = ({ dataFromStaticProps }) => {
+const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
   const isDesktop = useIsDesktop();
   const [imageScale, setImageScale] = useState(1.0);
+
+  console.log(availableImagesInDirectory);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,7 +133,11 @@ const Home = ({ dataFromStaticProps }) => {
           <h4>OFERTA</h4>
           <span className="borderBox"></span>
         </div>
-        <Listing id="oferta" dataFromStaticProps={dataFromStaticProps} />
+        <Listing
+          hashId="oferta"
+          dataFromStaticProps={dataFromStaticProps}
+          availableImagesInDirectory={availableImagesInDirectory}
+        />
       </HomeContainer>
     </MainLayout>
   );

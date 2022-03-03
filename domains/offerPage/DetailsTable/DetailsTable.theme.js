@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-top: 50px;
+  padding: 50px 0;
 `;
 
 export const Row = styled.div`

@@ -3,7 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../../../shared/components/Button/Button";
-const Listing = ({ dataFromStaticProps, id }) => {
+
+const Listing = ({
+  dataFromStaticProps,
+  hashId,
+  availableImagesInDirectory,
+}) => {
   const dataFromStaticPropsLength = dataFromStaticProps["altanyData"].length;
   const [isListingExpanded, setListingExpanded] = useState(false);
   const numberOfElementsToRender = isListingExpanded
@@ -11,17 +16,20 @@ const Listing = ({ dataFromStaticProps, id }) => {
     : 4;
 
   return (
-    <ListingWrapper id={id}>
+    <ListingWrapper id={hashId}>
       <div className="globalMargin">
         <ul>
           {dataFromStaticProps["altanyData"]
             .slice(0, numberOfElementsToRender)
-            .map(({ name, ID, shortDescription, price }) => {
+            .map(({ name, shortDescription, price }, index) => {
+              const imageSrc = name.includes("-")
+                ? name.split("-").pop()
+                : name.split(" ").pop();
               return (
-                <li key={ID}>
+                <li key={name}>
                   <div className="image-container">
                     <Image
-                      src={`/images/offers/${ID.toLowerCase()}/mainPhoto.jpeg`}
+                      src={`/images/offers/${imageSrc}/${availableImagesInDirectory[index][0]}`}
                       width={307}
                       height={270}
                       layout="responsive"
@@ -37,7 +45,7 @@ const Listing = ({ dataFromStaticProps, id }) => {
                     </p>
                     <Link
                       passHref
-                      key={ID}
+                      key={name}
                       href={"oferta/" + name.toLowerCase().replace(/\s+/g, "-")}
                     >
                       <a className="priceButton">WIĘCEJ</a>

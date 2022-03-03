@@ -3,6 +3,20 @@ import styled from "styled-components";
 const SliderWrapper = styled.div`
   width: 80%;
 
+  & > a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.blue};
+
+    &:before {
+      content: "\\25c4";
+      font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    width: 100%;
+  }
+
   img {
     background-color: #c0c1c926;
   }

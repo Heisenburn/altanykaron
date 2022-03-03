@@ -6,6 +6,8 @@ import ImageGallery from "react-image-gallery";
 import SliderWrapper from "../../domains/offerPage/Slider/SliderWrapper.theme";
 import Heading from "../../domains/offerPage/Heading.theme";
 import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
+import { useIsDesktop } from "../../hooks/useIsDesktop";
+import Link from "next/link";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
@@ -28,6 +30,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const paths = altanyData["altanyData"].map(({ name }) => ({
     params: {
+      //replace empty space with dashes
       oferta: name.toLowerCase().replace(/\s+/g, "-"),
     },
   }));
@@ -49,9 +52,13 @@ export default function Page({
     });
   };
 
-  const [altanyItem] = dataFromStaticProps["altanyData"].filter(
-    (item) => item.ID === idFromURL.toUpperCase()
+  const [altanyItem] = dataFromStaticProps["altanyData"].filter((item) =>
+    item.name.toLowerCase().includes(idFromURL)
   );
+
+  // https://altaworld.olx.pl/#items
+
+  const isDesktop = useIsDesktop();
 
   return (
     <>
@@ -60,10 +67,13 @@ export default function Page({
       </Head>
 
       <MainLayout>
-        <SliderWrapper className="globalMargin">
+        <SliderWrapper className={isDesktop ? "globalMargin" : ""}>
           <Heading>
-            <h1>{altanyItem.name}</h1>
-            <p style={{ textAlign: "right" }}>Cena: 2500zł</p>
+            <Link href="/#oferta"> Wróć do ofert</Link>
+            <div>
+              <h1>{altanyItem.name}</h1>
+              <p style={{ textAlign: "right" }}>Cena: 2500zł</p>
+            </div>
           </Heading>
           <ImageGallery
             items={getImageSet()}
@@ -72,7 +82,7 @@ export default function Page({
             useTranslate3D={true}
           />
         </SliderWrapper>
-        <DetailsTable data={altanyItem.technicalDetails}></DetailsTable>
+        <DetailsTable data={altanyItem.technicalDetails} />
       </MainLayout>
     </>
   );

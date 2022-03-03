@@ -140,7 +140,7 @@ const FooterContainer = styled.div`
 
   .icons {
     margin-top: 50px;
-    background-color: #004b753d;
+    background-color: ${({ theme }) => theme.blue};
     display: flex;
     justify-content: center;
     padding: 30px 0;
