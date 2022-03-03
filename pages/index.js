@@ -20,7 +20,7 @@ export async function getStaticProps() {
         : name.split(" ").pop();
 
       const fs = require("fs");
-      const dir = `public/images/offers/${dirName.toUpperCase()}`;
+      const dir = `${process.cwd()}/public/images/offers/${dirName.toUpperCase()}`;
 
       return fs.readdirSync(dir);
     }
@@ -90,7 +90,7 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
               </p>
 
               <Link href={"#oferta"} passHref>
-                <Button>ZOBACZ OFERTY </Button>
+                <Button className="seeOffersButton">ZOBACZ OFERTY </Button>
               </Link>
             </div>
           </HeroSection>
@@ -180,6 +180,16 @@ const HeroSection = styled.div`
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;
+
+  .seeOffersButton {
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+      color: ${({ theme }) => theme.blue};
+      border: 1px solid #ffd70052;
+    }
+  }
 
   @media screen and (max-width: 1023px) {
     button {

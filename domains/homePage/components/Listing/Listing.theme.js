@@ -60,6 +60,14 @@ const ListingWrapper = styled.div`
     }
   }
   li {
+
+    transition: transform .2s;  
+    &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    border: 1px solid #ffd70052;
+  }
+  
     width: 100%;
     background: white;
     margin: 52px 0;
