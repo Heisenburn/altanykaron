@@ -53,11 +53,6 @@ export default function Page({
     });
   };
 
-  console.log("getImageSet", getImageSet());
-
-  console.log("idFromURL", idFromURL);
-  console.log("availableImagesInDirectory", availableImagesInDirectory);
-
   const [altanyItem] = dataFromStaticProps["altanyData"].filter((item) =>
     item.name.toLowerCase().includes(idFromURL)
   );
@@ -78,7 +73,7 @@ export default function Page({
             <Link href="/#oferta"> Wróć do ofert</Link>
             <div>
               <h1>{altanyItem.name}</h1>
-              <p style={{ textAlign: "right" }}>Cena: 2500zł</p>
+              <p style={{ textAlign: "right" }}>Cena: {altanyItem.price}zł</p>
             </div>
           </Heading>
           <ImageGallery
@@ -86,6 +81,7 @@ export default function Page({
             showPlayButton={false}
             lazyLoad={true}
             useTranslate3D={true}
+            showFullscreenButton={isDesktop}
           />
         </SliderWrapper>
         <DetailsTable data={altanyItem.technicalDetails} />
