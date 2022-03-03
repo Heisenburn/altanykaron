@@ -47,8 +47,8 @@ export default function Page({
   const getImageSet = () => {
     return availableImagesInDirectory.map((src) => {
       return {
-        original: `/images/offers/${idFromURL}/${src}`,
-        thumbnail: `/images/offers/${idFromURL}/${src}`,
+        original: `/images/offers/${idFromURL.toUpperCase()}/${src}`,
+        thumbnail: `/images/offers/${idFromURL.toUpperCase()}/${src}`,
       };
     });
   };
