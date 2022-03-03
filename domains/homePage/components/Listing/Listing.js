@@ -26,32 +26,33 @@ const Listing = ({
                 ? name.split("-").pop()
                 : name.split(" ").pop();
               return (
-                <li key={name}>
-                  <div className="image-container">
-                    <Image
-                      src={`/images/offers/${imageSrc}/${availableImagesInDirectory[index][0]}`}
-                      width={307}
-                      height={270}
-                      layout="responsive"
-                      objectFit="cover"
-                      alt={`zdjecie oferty: ${name}`}
-                    />
-                  </div>
-                  <div className="listingItem-data">
-                    <h3 key={name}>{name}</h3>
-                    <p>{shortDescription}</p>
-                    <p>
-                      <strong>{price} zł</strong>
-                    </p>
-                    <Link
-                      passHref
-                      key={name}
-                      href={"oferta/" + name.toLowerCase().replace(/\s+/g, "-")}
-                    >
+                <Link
+                  passHref
+                  key={name}
+                  href={"oferta/" + name.toLowerCase().replace(/\s+/g, "-")}
+                >
+                  <li key={name}>
+                    <div className="image-container">
+                      <Image
+                        src={`/images/offers/${imageSrc}/${availableImagesInDirectory[index][0]}`}
+                        width={307}
+                        height={270}
+                        layout="responsive"
+                        objectFit="cover"
+                        alt={`zdjecie oferty: ${name}`}
+                      />
+                    </div>
+                    <div className="listingItem-data">
+                      <h3 key={name}>{name}</h3>
+                      <p>{shortDescription}</p>
+                      <p>
+                        <strong>{price} zł</strong>
+                      </p>
+
                       <a className="priceButton">WIĘCEJ</a>
-                    </Link>
-                  </div>
-                </li>
+                    </div>
+                  </li>
+                </Link>
               );
             })}
         </ul>

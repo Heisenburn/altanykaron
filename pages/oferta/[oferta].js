@@ -9,12 +9,23 @@ import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
 
+// https://vercel.com/docs/runtimes#advanced-usage/technical-details/including-additional-files
+
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
   const { oferta } = params;
   const idFromURL = oferta.split("-").pop();
   const fs = require("fs");
-  const dir = `${process.cwd()}/public/images/offers/${idFromURL.toUpperCase()}`;
+
+  const path = require("path");
+
+  const dir = path.join(
+    process.env.PWD,
+    "public",
+    "images",
+    "offers",
+    idFromURL.toUpperCase()
+  );
 
   const availableImagesInDirectory = fs.readdirSync(dir);
   return {
