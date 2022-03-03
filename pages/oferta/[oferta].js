@@ -8,8 +8,6 @@ import Heading from "../../domains/offerPage/Heading.theme";
 import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
-import getConfig from "next/config";
-const { serverRuntimeConfig } = getConfig();
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
@@ -19,6 +17,7 @@ export async function getStaticProps({ params }) {
   const dir = `./public/images/offers/${idFromURL.toUpperCase()}`;
 
   const availableImagesInDirectory = fs.readdirSync(dir);
+
   return {
     props: {
       dataFromStaticProps: altanyData,
