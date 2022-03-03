@@ -53,6 +53,11 @@ export default function Page({
     });
   };
 
+  console.log(getImageSet());
+
+  console.log("idFromURL", idFromURL);
+  console.log("availableImagesInDirectory", availableImagesInDirectory);
+
   const [altanyItem] = dataFromStaticProps["altanyData"].filter((item) =>
     item.name.toLowerCase().includes(idFromURL)
   );
