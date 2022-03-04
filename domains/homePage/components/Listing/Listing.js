@@ -49,7 +49,7 @@ const Listing = ({
                         alt={`zdjecie oferty: ${name}`}
                         placeholder="blur"
                         blurDataURL={rgbDataURL(165, 165, 165)}
-                        quality={10}
+                        quality={50}
                       />
                     </div>
                     <div className="listingItem-data">

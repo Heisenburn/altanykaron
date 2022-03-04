@@ -61,7 +61,6 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
             <div className="logo">
               {isDesktop ? (
                 <Image
-                  quality={10}
                   src={logo}
                   width={250}
                   height={50}
@@ -72,7 +71,7 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
 
             <ScrollableImage className="imageWrapper" zoom={imageScale}>
               <Image
-                quality={10}
+                quality={1}
                 alt=""
                 src={IMG_6697}
                 layout="fill"
@@ -120,7 +119,7 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
           <div className="column imgColumn">
             <ScrollableImage className="imageWrapper" zoom={imageScale}>
               <Image
-                quality={10}
+                quality={1}
                 alt=""
                 src={IMG_6448}
                 layout="fill"
