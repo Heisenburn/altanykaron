@@ -10,7 +10,7 @@ export const TRANSLATIONS = {
   woodFinishing: "Impregnacja",
   slateType: "Typ dachówki",
   columns: "Słupy",
-  height: "Wysokość",
+  height: "Wysokość w kalenicy",
   angle: "Kąt",
 };
 
