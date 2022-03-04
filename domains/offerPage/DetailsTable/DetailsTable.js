@@ -9,6 +9,7 @@ export const TRANSLATIONS = {
   availableColors: "Dostępne kolory",
   woodFinishing: "Impregnacja",
   slateType: "Typ dachówki",
+  columns: "Słupy",
   height: "Wysokość",
   angle: "Kąt",
 };
@@ -40,7 +41,11 @@ const DetailsTable = ({ data }) => {
                   className="detailsImage"
                 />
               ) : (
-                <span className="value">{value}</span>
+                <span className="value">
+                  {value.split("\n").map((line) => (
+                    <p>{line}</p>
+                  ))}
+                </span>
               )}
             </div>
           </Row>

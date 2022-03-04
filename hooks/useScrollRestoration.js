@@ -12,7 +12,6 @@ const saveScrollPosition = (url) => {
 };
 
 const restoreScrollPosition = (url) => {
-  console.log("restoreScrollPosition runs");
   try {
     const sessionUrl = sessionStorage.getItem(url);
 

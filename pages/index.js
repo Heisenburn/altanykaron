@@ -85,7 +85,7 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
             <div className="globalMargin">
               {isDesktop ? <Navigation /> : null}
 
-              <h1>Najlepsze altany drewniane w województwie śląskim</h1>
+              <h1>Montujemy altany na terenie całej Polski</h1>
               <p>
                 Dokładamy wszelkich starań aby nasze produkty były najwyższej
                 jakości. Sami strugamy i suszymy drewno. Nasze produkty to 100%
@@ -103,16 +103,15 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
             <div className="globalMargin">
               <h1>Jakość i precyzja</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                lacinia porta laoreet. Donec scelerisque eleifend cursus.
-                Vestibulum luctus, quam non mollis tempus, arcu ante molestie
-                sapien, tempus faucibus orci elit rutrum metus.
+                Nasza Firma zajmuje się produkcją altan wiat domków
+                narzędziowych oraz mebli ogrodowych. Dokładamy wszelkich starań
+                aby nasze produkty były najwyższej jakości. Sami strugamy i
+                suszymy drewno.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                lacinia porta laoreet. Donec scelerisque eleifend cursus.
-                Vestibulum luctus, quam non mollis tempus, arcu ante molestie
-                sapien, tempus faucibus orci elit rutrum metus.
+                Jeśli masz swój projekt lub pomysł na niestandardowe wykonanie
+                altany to dobrze trafiłeś po przesłaniu na szkicu zajmiemy się
+                resztą.
               </p>
             </div>
           </div>

@@ -3,7 +3,9 @@ import Head from "next/head";
 import { useScrollRestoration } from "../hooks/useScrollRestoration";
 
 export default function App({ Component, pageProps, router }) {
-  useScrollRestoration(router);
+  if (router.route === "/") {
+    useScrollRestoration(router);
+  }
   return (
     <>
       <Head>

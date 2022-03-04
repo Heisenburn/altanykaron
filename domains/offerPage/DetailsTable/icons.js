@@ -5,6 +5,7 @@ import woodFinishing from "../../../public/images/icons/woodFinishing.svg";
 import slateType from "../../../public/images/icons/slateType.svg";
 import height from "../../../public/images/icons/height.svg";
 import angle from "../../../public/images/icons/angle.svg";
+import columns from "../../../public/images/icons/columns.svg";
 
 export const icons = {
   dimensions: dimensions,
@@ -14,4 +15,5 @@ export const icons = {
   slateType: slateType,
   height: height,
   angle: angle,
+  columns: columns,
 };
