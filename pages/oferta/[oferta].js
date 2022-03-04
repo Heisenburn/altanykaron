@@ -69,7 +69,8 @@ export default function Page({
       <MainLayout>
         <SliderWrapper className={isDesktop ? "globalMargin" : ""}>
           <Heading>
-            <Link href="/#oferta"> Wróć do ofert</Link>
+            {/*TODO: wróc do tej samej pozycji*/}
+            <Link href="/"> Wróć do ofert</Link>
             <div>
               <h1 style={{ fontStyle: "oblique" }}>{altanyItem.name}</h1>
               <p style={{ textAlign: "right" }}>Cena: {altanyItem.price}zł</p>
