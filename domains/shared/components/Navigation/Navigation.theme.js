@@ -35,7 +35,7 @@ export const NavigationHome = styled.nav`
 export const DesktopSecondaryNavigation = styled.nav`
     ${commonStyles};
     background-color: ${({ theme }) => theme.brown};
-    box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 55%);
     position: fixed;
     width: 100vw;
     height: 90px;
@@ -61,7 +61,7 @@ export const MobileSecondaryNavigation = styled.nav`
   ${commonStyles};
 
   background-color: ${({ theme }) => theme.brown};
-  box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -5px 19px 4px rgba(0, 0, 0, 55%);
   flex-direction: ${({ isNavMobileExpanded }) =>
     isNavMobileExpanded ? "column" : ""};
   height: ${({ isNavMobileExpanded }) =>
