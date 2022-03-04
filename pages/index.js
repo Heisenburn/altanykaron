@@ -11,6 +11,7 @@ import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
 import { Navigation } from "../domains/shared/components/Navigation/Navigation";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import { useEffect, useState } from "react";
+import logo from "../public/images/logo.svg";
 
 export async function getStaticProps() {
   const availableImagesInDirectory = altanyData["altanyData"].map(
@@ -61,10 +62,10 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
               {isDesktop ? (
                 <Image
                   quality={50}
-                  src="/images/logo.svg"
+                  src={logo}
                   width={250}
                   height={50}
-                  alt="Your Name"
+                  alt="logo strony altanykaron.pl"
                 />
               ) : null}
             </div>
@@ -183,6 +184,17 @@ const HeroSection = styled.div`
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;
+
+  @media screen and (max-width: 1023px) {
+    & > div {
+      display: flex;
+      flex-direction: column;
+
+      & > button {
+        align-self: center;
+      }
+    }
+  }
 
   .seeOffersButton {
     transition: transform 0.2s;
