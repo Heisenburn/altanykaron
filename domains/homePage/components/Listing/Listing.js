@@ -25,7 +25,9 @@ const Listing = ({
                   <li key={name}>
                     <div className="image-container">
                       <Image
-                        src={`/images/offers/${imageSrc}/${availableImagesInDirectory[index][0]}`}
+                        src={`/images/offers/${imageSrc.toUpperCase()}/${
+                          availableImagesInDirectory[index][0]
+                        }`}
                         width={307}
                         height={270}
                         layout="responsive"
