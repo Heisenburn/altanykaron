@@ -72,14 +72,13 @@ export default function Page({
           <Heading>
             <Link href="/#oferta"> Wróć do ofert</Link>
             <div>
-              <h1>{altanyItem.name}</h1>
+              <h1 style={{ fontStyle: "oblique" }}>{altanyItem.name}</h1>
               <p style={{ textAlign: "right" }}>Cena: {altanyItem.price}zł</p>
             </div>
           </Heading>
           <ImageGallery
             items={getImageSet()}
             showPlayButton={false}
-            lazyLoad={true}
             useTranslate3D={true}
             showFullscreenButton={isDesktop}
           />

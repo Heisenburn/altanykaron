@@ -36,6 +36,9 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
   const [imageScale, setImageScale] = useState(1.0);
 
   useEffect(() => {
+    if (!isDesktop) {
+      return;
+    }
     const handleScroll = () => {
       setImageScale((window.scrollY + 10000) / 100);
     };
@@ -46,7 +49,7 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <MainLayout isHome={true}>
@@ -217,7 +220,9 @@ const HeroSection = styled.div`
 `;
 
 const ScrollableImage = styled.div`
-  img {
-    transform: ${({ zoom }) => `scale(${zoom / 100})`};
+  @media screen and (min-width: 1023px) {
+    img {
+      transform: ${({ zoom }) => `scale(${zoom / 100})`};
+    }
   }
 `;

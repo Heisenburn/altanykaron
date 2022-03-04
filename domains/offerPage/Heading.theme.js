@@ -9,6 +9,7 @@ const Heading = styled.div`
     text-decoration: none;
     color: ${({ theme }) => theme.blue};
     font-size: 14px;
+    width: 40%;
     padding-bottom: 10px;
 
     :before {

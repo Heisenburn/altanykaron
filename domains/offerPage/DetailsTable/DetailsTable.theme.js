@@ -39,6 +39,10 @@ export const Row = styled.div`
       object-fit: contain;
       margin: 20px;
       max-width: 530px;
+
+      @media screen and (max-width: 500px) {
+        margin: 0;
+      }
     }
 
     @media screen and (min-width: 790px) {

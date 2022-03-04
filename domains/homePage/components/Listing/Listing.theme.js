@@ -35,10 +35,9 @@ const ListingWrapper = styled.div`
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 0 130vh 500vw;
+    border-width: 0 0 400vh 500vw;
     border-color: transparent transparent #57423f2e transparent;
     position: absolute;
-    left: -400vw;
     right: 0;
     bottom: 0;
     z-index: 0;
@@ -60,12 +59,14 @@ const ListingWrapper = styled.div`
     }
   }
   li {
-
-    transition: transform .2s;  
-    &:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-    border: 1px solid #ffd70052;
+    @media screen and (min-width: 1023px) {
+      transition: transform .2s;
+      
+      &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+        border: 1px solid #ffd70052;
+    }
   }
   
     width: 100%;
