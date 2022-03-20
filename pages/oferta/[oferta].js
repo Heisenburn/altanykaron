@@ -58,6 +58,10 @@ export default function Page({
 
   // https://altaworld.olx.pl/#items
 
+  //Ostatnia zrobiona: A9
+
+  //nastepny b1 -> to na olx b2 ...
+
   const isDesktop = useIsDesktop();
 
   return (

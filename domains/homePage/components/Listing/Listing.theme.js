@@ -116,6 +116,7 @@ const ListingWrapper = styled.div`
       h3 {
         margin-top: 23px;
       }
+      
     }
 
     .priceButton {

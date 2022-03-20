@@ -26,7 +26,7 @@ const Listing = ({
       <div className="globalMargin">
         <ul>
           {dataFromStaticProps["altanyData"].map(
-            ({ name, shortDescription, price }, index) => {
+            ({ name, shortDescription, price, technicalDetails }, index) => {
               const imageSrc = name.includes("-")
                 ? name.split("-").pop()
                 : name.split(" ").pop();
@@ -54,7 +54,11 @@ const Listing = ({
                     </div>
                     <div className="listingItem-data">
                       <h3 key={name}>{name}</h3>
-                      <p>{shortDescription}</p>
+                      <p>
+                        {shortDescription +
+                          " " +
+                          technicalDetails["dimensions"]}
+                      </p>
                       <p>
                         <strong>{price} zł</strong>
                       </p>
