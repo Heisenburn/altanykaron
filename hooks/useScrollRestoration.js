@@ -2,6 +2,9 @@ import Router, { NextRouter } from "next/router";
 import { useEffect } from "react";
 
 const saveScrollPosition = (url) => {
+  if (url !== "/") {
+    return;
+  }
   const scrollPosition = { x: window.scrollX, y: window.scrollY };
 
   try {
@@ -33,7 +36,6 @@ export const useScrollRestoration = (router) => {
     if ("scrollRestoration" in window.history) {
       let shouldScrollRestore = false;
 
-      window.history.scrollRestoration = "manual";
       restoreScrollPosition(router.asPath);
 
       const onBeforeUnload = () => {

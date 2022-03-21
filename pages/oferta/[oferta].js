@@ -8,6 +8,7 @@ import Heading from "../../domains/offerPage/Heading.theme";
 import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
+import { forwardRef } from "react";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
@@ -38,6 +39,14 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
+const CustomLink = forwardRef(({ onClick, href }, ref) => {
+  return (
+    <a href={href} onClick={onClick} ref={ref}>
+      Wróć do ofert
+    </a>
+  );
+});
+
 export default function Page({
   dataFromStaticProps,
   availableImagesInDirectory,
@@ -64,6 +73,10 @@ export default function Page({
 
   const isDesktop = useIsDesktop();
 
+  const handleBackToOfferClick = () => {
+    sessionStorage.setItem("shouldRestorePosition", "true");
+  };
+
   return (
     <>
       <Head>
@@ -73,7 +86,11 @@ export default function Page({
       <MainLayout>
         <SliderWrapper className={isDesktop ? "globalMargin" : ""}>
           <Heading>
-            <Link href="/"> Wróć do ofert</Link>
+            <Link passHref href="/">
+              <CustomLink onClick={handleBackToOfferClick}>
+                Wróć do ofert
+              </CustomLink>
+            </Link>
             <div>
               <h1 style={{ fontStyle: "oblique" }}>{altanyItem.name}</h1>
               <p style={{ textAlign: "right" }}>Cena: {altanyItem.price}zł</p>

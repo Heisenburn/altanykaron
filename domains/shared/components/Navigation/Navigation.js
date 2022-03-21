@@ -10,11 +10,13 @@ import {
 import { useState } from "react";
 
 const getNavJSX = (handleHashClick) => {
+  const handleHomeClick = () =>
+    sessionStorage.setItem("shouldRestorePosition", "false");
   return (
     <ul>
       <li>
         <Link href="/">
-          <a>home</a>
+          <a onClick={handleHomeClick}>home</a>
         </Link>
       </li>
       <li>
