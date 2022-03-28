@@ -17,15 +17,13 @@ export default function Footer() {
                       width={210}
                       height={26}
                       layout="responsive"
-                      alt="Your Name"
                     />
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, onsectetur adipiscing elit.
-                    Vitae proin in volutpat pellentesque cum convallis molestie
-                    porttitor. Orci, enim leo in a non nisi. Tortor, viverra sit
-                    viverra non habitant imperdiet felis, augue. Aliquam
-                    celerisque ac nunc, dolor sit diam nisl, vulputate senectus.
+                    Nasza Firma zajmuje się produkcją altan wiat domków
+                    narzędziowych oraz mebli ogrodowych. Jeśli masz swój projekt
+                    lub pomysł na niestandardowe wykonanie altany to dobrze
+                    trafiłeś po przesłaniu na szkicu zajmiemy się resztą.
                   </p>
                 </div>
               </div>
@@ -37,7 +35,6 @@ export default function Footer() {
                       src="/images/icons/location.svg"
                       width={20}
                       height={20}
-                      alt="Your Name"
                     />
                     <p>
                       <strong>Stary Broniszew</strong> ul. Tartakowa 10
@@ -48,16 +45,14 @@ export default function Footer() {
                       src="/images/icons/mail.svg"
                       width={20}
                       height={20}
-                      alt="Your Name"
                     />
-                    <p>twojmail@gmail.com</p>
+                    <p>tartak.broniszew@onet.pl</p>
                   </div>
                   <div className="iconWrapper">
                     <Image
                       src="/images/icons/phone-call.svg"
                       width={20}
                       height={20}
-                      alt="Your Name"
                     />
                     <p id="phoneNumber">+48 530 534 659</p>
                   </div>
@@ -72,33 +67,22 @@ export default function Footer() {
                   src="/images/icons/certificate.svg"
                   width={43}
                   height={43}
-                  alt="Your Name"
                 />
                 <p>Wieloletnie doświadczenie</p>
               </div>
               <div className="icon">
-                <Image
-                  src="/images/icons/complex.svg"
-                  width={43}
-                  height={43}
-                  alt="Your Name"
-                />
+                <Image src="/images/icons/complex.svg" width={43} height={43} />
                 <p>Kompleksowe rozwiązania</p>
               </div>
               <div className="icon">
-                <Image
-                  src="/images/icons/quality.svg"
-                  width={43}
-                  height={43}
-                  alt="Your Name"
-                />
+                <Image src="/images/icons/quality.svg" width={43} height={43} />
                 <p>Wysoka jakość</p>
               </div>
             </div>
           </div>
           <div className="globalMargin">
             <p id="copyright">
-              Copyright © 2021 altanykaron.pl. All rights reserved.
+              Copyright © 2022 altanykaron.pl. All rights reserved.
             </p>
           </div>
         </footer>

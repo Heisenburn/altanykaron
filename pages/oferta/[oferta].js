@@ -8,7 +8,11 @@ import Heading from "../../domains/offerPage/Heading.theme";
 import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
+import {
+  ScrollRestorationContext,
+  ScrollRestorationContextWrapper,
+} from "../../context/ScrollRestorationContext";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
@@ -67,16 +71,12 @@ export default function Page({
 
   // https://altaworld.olx.pl/#items
 
-  //Ostatnia zrobiona: A9
-
-  //nastepny b1 -> to na olx b2 ...
-
   const isDesktop = useIsDesktop();
+  const { updateShouldRestore } = useContext(ScrollRestorationContext);
 
   const handleBackToOfferClick = () => {
-    sessionStorage.setItem("shouldRestorePosition", "true");
+    updateShouldRestore(true);
   };
-
   return (
     <>
       <Head>

@@ -8,7 +8,7 @@ const Heading = styled.div`
   & > a {
     text-decoration: none;
     color: ${({ theme }) => theme.blue};
-    font-size: 14px;
+    font-size: 16px;
     width: 40%;
     padding-bottom: 10px;
 

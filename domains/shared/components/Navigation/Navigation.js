@@ -8,10 +8,13 @@ import {
   DesktopSecondaryNavigation,
 } from "./Navigation.theme";
 import { useState } from "react";
+import { ScrollRestorationContext } from "../../../../context/ScrollRestorationContext";
+import { useContext } from "react";
 
 const getNavJSX = (handleHashClick) => {
-  const handleHomeClick = () =>
-    sessionStorage.setItem("shouldRestorePosition", "false");
+  const { updateShouldRestore } = useContext(ScrollRestorationContext);
+  const handleHomeClick = () => updateShouldRestore(false);
+
   return (
     <ul>
       <li>

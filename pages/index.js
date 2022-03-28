@@ -10,8 +10,11 @@ import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
 import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
 import { Navigation } from "../domains/shared/components/Navigation/Navigation";
 import { useIsDesktop } from "../hooks/useIsDesktop";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "../public/images/logo.svg";
+import { useScrollRestoration } from "../hooks/useScrollRestoration";
+import { useRouter } from "next/router";
+import { ScrollRestorationContext } from "../context/ScrollRestorationContext";
 
 export async function getStaticProps() {
   const availableImagesInDirectory = altanyData["altanyData"].map(
@@ -33,6 +36,13 @@ export async function getStaticProps() {
 }
 
 const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
+  const router = useRouter();
+  const { shouldRestoreScrollPosition } = useContext(ScrollRestorationContext);
+
+  if (shouldRestoreScrollPosition) {
+    useScrollRestoration(router);
+  }
+
   const isDesktop = useIsDesktop();
   const [imageScale, setImageScale] = useState(1.0);
 
