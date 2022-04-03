@@ -6,10 +6,13 @@ import {
   NavigationHome,
   GlobalStyle,
   DesktopSecondaryNavigation,
+  Wrapper,
 } from "./Navigation.theme";
 import { useState } from "react";
 import { ScrollRestorationContext } from "../../../../context/ScrollRestorationContext";
 import { useContext } from "react";
+import { GallerySliderVisibilityContext } from "../../../../context/GallerySliderVisibility";
+import { useRouter } from "next/router";
 
 const getNavJSX = (handleHashClick, updateShouldRestore) => {
   const handleHomeClick = () => updateShouldRestore(false);
@@ -43,8 +46,10 @@ const getNavJSX = (handleHashClick, updateShouldRestore) => {
 export const Navigation = ({ isHome = true }) => {
   const isDesktop = useIsDesktop();
   const { updateShouldRestore } = useContext(ScrollRestorationContext);
-
+  const { isSliderDisplayed } = useContext(GallerySliderVisibilityContext);
   const [isNavMobileExpanded, setNavMobileExpanded] = useState(false);
+
+  const router = useRouter();
 
   const handleMobileNavClick = () => {
     setNavMobileExpanded((prevState) => !prevState);
@@ -60,47 +65,57 @@ export const Navigation = ({ isHome = true }) => {
 
   const NavigationDesktop = getNavigationWrapper(isHome);
 
-  return isDesktop ? (
-    <NavigationDesktop>
-      {!isHome ? (
-        <Image
-          src="/images/logo-white-letters.svg"
-          width={130}
-          height={20}
-          layout="fixed"
-          alt="logo strony"
-        />
-      ) : null}
-      {getNavJSX(null, updateShouldRestore)}
-    </NavigationDesktop>
-  ) : (
-    <>
-      <GlobalStyle isNavMobileExpanded={isNavMobileExpanded} />
-      <MobileSecondaryNavigation isNavMobileExpanded={isNavMobileExpanded}>
-        <div id="nav-logo-and-hamburger">
-          <Image
-            src="/images/logo-white-letters.svg"
-            width={130}
-            height={20}
-            layout="fixed"
-            alt="logo strony"
-          />
-          <button
-            id="hamburgerBar"
-            className={isNavMobileExpanded ? "open" : ""}
-            onClick={handleMobileNavClick}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+  console.log(isSliderDisplayed);
 
-        {isNavMobileExpanded
-          ? getNavJSX(handleMobileNavClick, updateShouldRestore)
-          : null}
-      </MobileSecondaryNavigation>
-    </>
+  return (
+    <Wrapper
+      isSliderDisplayed={
+        router.asPath === "/galeria" ? isSliderDisplayed : false
+      }
+    >
+      {isDesktop ? (
+        <NavigationDesktop>
+          {!isHome ? (
+            <Image
+              src="/images/logo-white-letters.svg"
+              width={130}
+              height={20}
+              layout="fixed"
+              alt="logo strony"
+            />
+          ) : null}
+          {getNavJSX(null, updateShouldRestore)}
+        </NavigationDesktop>
+      ) : (
+        <>
+          <GlobalStyle isNavMobileExpanded={isNavMobileExpanded} />
+          <MobileSecondaryNavigation isNavMobileExpanded={isNavMobileExpanded}>
+            <div id="nav-logo-and-hamburger">
+              <Image
+                src="/images/logo-white-letters.svg"
+                width={130}
+                height={20}
+                layout="fixed"
+                alt="logo strony"
+              />
+              <button
+                id="hamburgerBar"
+                className={isNavMobileExpanded ? "open" : ""}
+                onClick={handleMobileNavClick}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+
+            {isNavMobileExpanded
+              ? getNavJSX(handleMobileNavClick, updateShouldRestore)
+              : null}
+          </MobileSecondaryNavigation>
+        </>
+      )}
+    </Wrapper>
   );
 };

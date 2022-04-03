@@ -1,8 +1,15 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 
-const commonStyles = css`
-  z-index: 999999999999;
+export const Wrapper = styled.div`
+  z-index: ${({ isSliderDisplayed }) => (isSliderDisplayed ? 0 : 999999999999)};
 
+  nav {
+    z-index: ${({ isSliderDisplayed }) =>
+      isSliderDisplayed ? 0 : 999999999999};
+  }
+`;
+
+const commonStyles = css`
   ul {
     @media screen and (min-width: 1023px) {
       display: flex;

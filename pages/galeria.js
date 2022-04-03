@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { getBlurDataUrl } from "../domains/shared/Helper/getBlurDataUrl";
+import { GallerySliderVisibilityContext } from "../context/GallerySliderVisibility";
+import { useContext } from "react";
 
 const baseDir = `/images/offers`;
 
@@ -31,10 +33,16 @@ export async function getStaticProps() {
 }
 
 const Galeria = ({ listOfSrc }) => {
-  console.log(listOfSrc);
+  const { updateSliderVisibility } = useContext(GallerySliderVisibilityContext);
+
+  const handleImageClick = () => {
+    updateSliderVisibility((prevState) => !prevState);
+    console.log("changed visibility");
+  };
+
   return (
     <MainLayout>
-      <PhotoProvider>
+      <PhotoProvider onVisibleChange={handleImageClick}>
         <Container>
           {listOfSrc.map((item, index) => {
             return (

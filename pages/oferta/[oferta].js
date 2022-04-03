@@ -9,12 +9,7 @@ import DetailsTable from "../../domains/offerPage/DetailsTable/DetailsTable";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
 import { forwardRef, useContext } from "react";
-import {
-  ScrollRestorationContext,
-  ScrollRestorationContextWrapper,
-} from "../../context/ScrollRestorationContext";
-import { useScrollRestoration } from "../../hooks/useScrollRestoration";
-import { useRouter } from "next/router";
+import { ScrollRestorationContext } from "../../context/ScrollRestorationContext";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
