@@ -13,6 +13,8 @@ import {
   ScrollRestorationContext,
   ScrollRestorationContextWrapper,
 } from "../../context/ScrollRestorationContext";
+import { useScrollRestoration } from "../../hooks/useScrollRestoration";
+import { useRouter } from "next/router";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {

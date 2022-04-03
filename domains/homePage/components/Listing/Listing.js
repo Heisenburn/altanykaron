@@ -34,7 +34,7 @@ const Listing = ({
                 <Link
                   passHref
                   key={name}
-                  href={"oferta/" + name.toLowerCase().replace(/\s+/g, "-")}
+                  href={"/oferta/" + name.toLowerCase().replace(/\s+/g, "-")}
                 >
                   <li key={name}>
                     <div className="image-container">
@@ -49,7 +49,7 @@ const Listing = ({
                         alt={`zdjecie oferty: ${name}`}
                         placeholder="blur"
                         blurDataURL={rgbDataURL(165, 165, 165)}
-                        quality={50}
+                        quality={30}
                       />
                     </div>
                     <div className="listingItem-data">

@@ -11,8 +11,7 @@ import { useState } from "react";
 import { ScrollRestorationContext } from "../../../../context/ScrollRestorationContext";
 import { useContext } from "react";
 
-const getNavJSX = (handleHashClick) => {
-  const { updateShouldRestore } = useContext(ScrollRestorationContext);
+const getNavJSX = (handleHashClick, updateShouldRestore) => {
   const handleHomeClick = () => updateShouldRestore(false);
 
   return (
@@ -43,6 +42,7 @@ const getNavJSX = (handleHashClick) => {
 
 export const Navigation = ({ isHome = true }) => {
   const isDesktop = useIsDesktop();
+  const { updateShouldRestore } = useContext(ScrollRestorationContext);
 
   const [isNavMobileExpanded, setNavMobileExpanded] = useState(false);
 
@@ -71,7 +71,7 @@ export const Navigation = ({ isHome = true }) => {
           alt="logo strony"
         />
       ) : null}
-      {getNavJSX()}
+      {getNavJSX(null, updateShouldRestore)}
     </NavigationDesktop>
   ) : (
     <>
@@ -97,7 +97,9 @@ export const Navigation = ({ isHome = true }) => {
           </button>
         </div>
 
-        {isNavMobileExpanded ? getNavJSX(handleMobileNavClick) : null}
+        {isNavMobileExpanded
+          ? getNavJSX(handleMobileNavClick, updateShouldRestore)
+          : null}
       </MobileSecondaryNavigation>
     </>
   );

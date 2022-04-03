@@ -4,17 +4,20 @@ import styled from "styled-components";
 import altanyData from "../data.json";
 import TwoColumnsLayout from "../domains/homePage/components/Layouts/TwoColumnsLayout";
 import Image from "next/image";
-import Button from "../domains/shared/components/Button/Button";
 import Listing from "../domains/homePage/components/Listing/Listing";
-import IMG_6697 from "../public/images/IMG_6697-min.jpeg";
-import IMG_6448 from "../public/images/IMG_6448-min.jpeg";
+import IMG_6697 from "../public/images/IMG_6697-compressed.webp";
+import IMG_6448 from "../public/images/IMG_6448-compressed.webp";
 import { Navigation } from "../domains/shared/components/Navigation/Navigation";
-import { useIsDesktop } from "../hooks/useIsDesktop";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import logo from "../public/images/logo.svg";
-import { useScrollRestoration } from "../hooks/useScrollRestoration";
+import {
+  restoreScrollPosition,
+  useScrollRestoration,
+} from "../hooks/useScrollRestoration";
 import { useRouter } from "next/router";
 import { ScrollRestorationContext } from "../context/ScrollRestorationContext";
+import { useIsDesktop } from "../hooks/useIsDesktop";
+import { ScrollableImage } from "../domains/homePage/components/Components/ScrollableImage";
 
 export async function getStaticProps() {
   const availableImagesInDirectory = altanyData["altanyData"].map(
@@ -39,28 +42,17 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
   const router = useRouter();
   const { shouldRestoreScrollPosition } = useContext(ScrollRestorationContext);
 
+  console.log("shouldRestoreScrollPosition", shouldRestoreScrollPosition);
+
+  //save position
+  useScrollRestoration(router);
+
+  //restore to position
   if (shouldRestoreScrollPosition) {
-    useScrollRestoration(router);
+    restoreScrollPosition("/");
   }
 
   const isDesktop = useIsDesktop();
-  const [imageScale, setImageScale] = useState(1.0);
-
-  useEffect(() => {
-    if (!isDesktop) {
-      return;
-    }
-    const handleScroll = () => {
-      setImageScale((window.scrollY + 10000) / 100);
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isDesktop]);
 
   return (
     <MainLayout isHome={true}>
@@ -78,10 +70,8 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
                 />
               ) : null}
             </div>
-
-            <ScrollableImage className="imageWrapper" zoom={imageScale}>
+            <ScrollableImage>
               <Image
-                quality={1}
                 alt=""
                 src={IMG_6697}
                 layout="fill"
@@ -102,8 +92,8 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
                 zadowolonych klientów z których wiele jest z polecenia.
               </p>
 
-              <Link href={"#oferta"} passHref>
-                <Button className="seeOffersButton">ZOBACZ OFERTY </Button>
+              <Link passHref href={"#oferta"}>
+                <a className="seeOffersButton">ZOBACZ OFERTY</a>
               </Link>
             </div>
           </HeroSection>
@@ -126,9 +116,8 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
             </div>
           </div>
           <div className="column imgColumn">
-            <ScrollableImage className="imageWrapper" zoom={imageScale}>
+            <ScrollableImage>
               <Image
-                quality={1}
                 alt=""
                 src={IMG_6448}
                 layout="fill"
@@ -205,6 +194,20 @@ const HeroSection = styled.div`
   }
 
   .seeOffersButton {
+    background: white;
+    width: 220px;
+    height: 65px;
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px;
+    @media screen and (max-width: 1023px) {
+      font-size: 16px;
+    }
+    cursor: pointer;
+
     transition: transform 0.2s;
     &:hover {
       transform: scale(1.05);
@@ -236,13 +239,5 @@ const HeroSection = styled.div`
     margin: 0;
     color: white;
     padding-bottom: 70px;
-  }
-`;
-
-const ScrollableImage = styled.div`
-  @media screen and (min-width: 1023px) {
-    img {
-      transform: ${({ zoom }) => `scale(${zoom / 100})`};
-    }
   }
 `;
