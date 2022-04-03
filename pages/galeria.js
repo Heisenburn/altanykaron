@@ -1,5 +1,9 @@
 import MainLayout from "../domains/shared/components/Layouts/MainLayout";
-import Gallery from "react-photo-gallery";
+import Image from "next/image";
+import styled from "styled-components";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import { getBlurDataUrl } from "../domains/shared/Helper/getBlurDataUrl";
 
 const baseDir = `/images/offers`;
 
@@ -13,34 +17,56 @@ export async function getStaticProps() {
     return availablePhotos.map((item) => `${dir}/${item}`);
   });
 
+  const photos = availableImagesInDirectory.map((item) => {
+    return item.map((availableImg) => `${baseDir}/${availableImg}`);
+  });
+
+  const listOfSrc = [].concat.apply([], photos);
+
   return {
     props: {
-      availableImagesInDirectory,
+      listOfSrc,
     }, // will be passed to the page component as props
   };
 }
 
-const Galeria = ({ availableImagesInDirectory }) => {
-  const photos = availableImagesInDirectory.map((item) => {
-    return item.map((availableImg) => {
-      return {
-        src: `${baseDir}/${availableImg}`,
-        width: 1,
-        height: 1,
-      };
-    });
-  });
-
-  photos.forEach((item) => {
-    return photos.concat(item);
-  });
-
-  console.log(photos);
+const Galeria = ({ listOfSrc }) => {
+  console.log(listOfSrc);
   return (
     <MainLayout>
-      <Gallery photos={photos} />
+      <PhotoProvider>
+        <Container>
+          {listOfSrc.map((item, index) => {
+            return (
+              <PhotoView src={item} key={index}>
+                <Image
+                  src={item}
+                  width={300}
+                  height={300}
+                  placeholder="blur"
+                  blurDataURL={getBlurDataUrl(165, 165, 165)}
+                  quality={30}
+                />
+              </PhotoView>
+            );
+          })}
+        </Container>
+      </PhotoProvider>
     </MainLayout>
   );
 };
 
 export default Galeria;
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+
+  img {
+    padding: 10px !important;
+    object-fit: cover;
+  }
+`;

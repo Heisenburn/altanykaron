@@ -42,8 +42,6 @@ const Home = ({ dataFromStaticProps, availableImagesInDirectory }) => {
   const router = useRouter();
   const { shouldRestoreScrollPosition } = useContext(ScrollRestorationContext);
 
-  console.log("shouldRestoreScrollPosition", shouldRestoreScrollPosition);
-
   //save position
   useScrollRestoration(router);
 
@@ -205,6 +203,11 @@ const HeroSection = styled.div`
     padding: 20px;
     @media screen and (max-width: 1023px) {
       font-size: 16px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
     }
     cursor: pointer;
 
