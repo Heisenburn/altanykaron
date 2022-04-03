@@ -36,8 +36,6 @@ export const useScrollRestoration = (router) => {
     if ("scrollRestoration" in window.history) {
       let shouldScrollRestore = false;
 
-      restoreScrollPosition(router.asPath);
-
       const onBeforeUnload = () => {
         saveScrollPosition(router.asPath);
         delete event["returnValue"];
@@ -50,7 +48,6 @@ export const useScrollRestoration = (router) => {
       const onRouteChangeComplete = (url) => {
         if (shouldScrollRestore) {
           shouldScrollRestore = false;
-          restoreScrollPosition(url);
         }
       };
 
