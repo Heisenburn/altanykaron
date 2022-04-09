@@ -37,7 +37,6 @@ const Galeria = ({ listOfSrc }) => {
 
   const handleImageClick = () => {
     updateSliderVisibility((prevState) => !prevState);
-    console.log("changed visibility");
   };
 
   return (

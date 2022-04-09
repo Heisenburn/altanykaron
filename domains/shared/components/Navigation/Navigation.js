@@ -65,8 +65,6 @@ export const Navigation = ({ isHome = true }) => {
 
   const NavigationDesktop = getNavigationWrapper(isHome);
 
-  console.log(isSliderDisplayed);
-
   return (
     <Wrapper
       isSliderDisplayed={
