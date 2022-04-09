@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle, css } from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../../../constants/screenSize";
 
 export const Wrapper = styled.div`
   z-index: ${({ isSliderDisplayed }) => (isSliderDisplayed ? 0 : 999999999999)};
@@ -11,7 +12,7 @@ export const Wrapper = styled.div`
 
 const commonStyles = css`
   ul {
-    @media screen and (min-width: 1023px) {
+    @media screen and (min-width: ${DESKTOP_MEDIA_QUERY}) {
       display: flex;
       justify-content: space-between;
     }

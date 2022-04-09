@@ -1,16 +1,17 @@
 import styled from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../../../constants/screenSize";
 
 const TwoColumnsLayout = styled.div`
   display: flex;
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
     flex-direction: ${({ columnReverse }) =>
       columnReverse ? "column-reverse" : "column"};
   }
 
   &.footerColumns {
     > .column:first-of-type {
-      @media screen and (min-width: 1023px) {
+      @media screen and (min-width: ${DESKTOP_MEDIA_QUERY}) {
         flex-basis: 570px;
       }
       #companyInfo {
@@ -18,7 +19,7 @@ const TwoColumnsLayout = styled.div`
           font-size: 16px;
         }
         width: 340px;
-        @media screen and (max-width: 1023px) {
+        @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
           width: auto;
         }
       }
@@ -37,7 +38,7 @@ const TwoColumnsLayout = styled.div`
       height: 50px !important;
     }
     .column {
-      @media screen and (min-width: 1023px) {
+      @media screen and (min-width: ${DESKTOP_MEDIA_QUERY}) {
         width: 50vw;
         max-height: 920px;
         &.imgColumn {
@@ -52,12 +53,12 @@ const TwoColumnsLayout = styled.div`
     #heroDescription {
       background-color: ${({ theme }) => theme.brownLight};
       color: white;
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
         padding: 40px 0 80px;
       }
       h1 {
         padding: 132px 0 59px;
-        @media screen and (max-width: 1023px) {
+        @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
           padding: 40px 0;
           margin: 0;
         }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../../../constants/screenSize";
 
 export default function Button({ children, ...props }) {
   return <StyledButton {...props}>{children}</StyledButton>;
@@ -12,7 +13,7 @@ const StyledButton = styled.button`
   border: none;
   font-weight: bold;
   font-size: 18px;
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
     font-size: 16px;
   }
   cursor: pointer;

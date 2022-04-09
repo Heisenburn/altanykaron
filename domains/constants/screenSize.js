@@ -1,0 +1,3 @@
+const DESKTOP_MEDIA_QUERY = "1023px";
+
+export default DESKTOP_MEDIA_QUERY;

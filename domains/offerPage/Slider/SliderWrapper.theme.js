@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../../constants/screenSize";
 
 const SliderWrapper = styled.div`
   width: 80%;
@@ -13,7 +14,7 @@ const SliderWrapper = styled.div`
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
     width: 100%;
   }
 

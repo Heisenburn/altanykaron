@@ -1,6 +1,7 @@
 import { useIsDesktop } from "../../../../hooks/useIsDesktop";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../../../constants/screenSize";
 
 export const ScrollableImage = ({ children }) => {
   const isDesktop = useIsDesktop();
@@ -30,7 +31,7 @@ export const ScrollableImage = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: ${DESKTOP_MEDIA_QUERY}) {
     img {
       transform: ${({ zoom }) => `scale(${zoom / 100})`};
     }

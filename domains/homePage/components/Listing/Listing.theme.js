@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../../../constants/screenSize";
 
 const ListingWrapper = styled.div`
   & > div {
@@ -53,13 +54,13 @@ const ListingWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       padding: 0;
       margin: 0;
     }
   }
   li {
-    @media screen and (min-width: 1023px) {
+    @media screen and (min-width: ${DESKTOP_MEDIA_QUERY}) {
       transition: transform .2s;
       
       &:hover {
@@ -78,7 +79,7 @@ const ListingWrapper = styled.div`
     overflow: hidden;
 
     display: flex;
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       flex-direction: column;
       align-items: center;
       padding: 0;
@@ -105,7 +106,7 @@ const ListingWrapper = styled.div`
       flex-direction: column;
       position: relative;
 
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -132,7 +133,7 @@ const ListingWrapper = styled.div`
       justify-content: center;
       align-items: center;
 
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
         position: static;
         padding: 0;
         width: 100%;

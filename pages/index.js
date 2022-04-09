@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 import { ScrollRestorationContext } from "../context/ScrollRestorationContext";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import { ScrollableImage } from "../domains/homePage/components/Components/ScrollableImage";
+import DESKTOP_MEDIA_QUERY from "../domains/constants/screenSize";
 
 export async function getStaticProps() {
   const availableImagesInDirectory = altanyData["altanyData"].map(
@@ -180,7 +181,7 @@ const HeroSection = styled.div`
   background-position: bottom;
   background-size: 100%;
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
     & > div {
       display: flex;
       flex-direction: column;
@@ -201,7 +202,7 @@ const HeroSection = styled.div`
     font-size: 18px;
     text-decoration: none;
     padding: 20px;
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       font-size: 16px;
 
       display: flex;
@@ -220,7 +221,7 @@ const HeroSection = styled.div`
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
     button {
       width: 155px;
       font-size: 14px;
@@ -232,7 +233,7 @@ const HeroSection = styled.div`
   h1 {
     padding: 60px 0;
   }
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: ${DESKTOP_MEDIA_QUERY}) {
     h1 {
       padding: 116px 0 36px;
     }

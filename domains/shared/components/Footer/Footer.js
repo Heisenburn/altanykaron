@@ -2,6 +2,7 @@ import theme from "../../../../globalStyles/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
 import TwoColumnsLayout from "../../../homePage/components/Layouts/TwoColumnsLayout";
+import DESKTOP_MEDIA_QUERY from "../../../constants/screenSize";
 export default function Footer() {
   return (
     <ThemeProvider theme={theme}>
@@ -135,7 +136,7 @@ const FooterContainer = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
         flex-direction: column;
       }
     }
@@ -151,7 +152,7 @@ const FooterContainer = styled.div`
         text-transform: uppercase;
         font-size: 10px;
       }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
         padding: 10px 0;
       }
     }

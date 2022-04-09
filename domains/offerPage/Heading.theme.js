@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import DESKTOP_MEDIA_QUERY from "../constants/screenSize";
+import { DesktopSecondaryNavigation } from "../shared/components/Navigation/Navigation.theme";
 
 const Heading = styled.div`
   display: flex;
@@ -25,13 +27,13 @@ const Heading = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       flex-direction: column;
       align-items: flex-start;
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
     padding-top: 100px;
     flex-direction: column;
     align-items: flex-start;
