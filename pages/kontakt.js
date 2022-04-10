@@ -3,11 +3,24 @@ import styled from "styled-components";
 import { useForm, ValidationError } from "@formspree/react";
 import Image from "next/image";
 import locationIcon from "../public/images/icons/location.svg";
+import Link from "next/link";
+import Button from "../domains/shared/components/Button/Button";
+import DESKTOP_MEDIA_QUERY from "../domains/constants/screenSize";
 
+//moze lepiej uzyc https://react-hook-form.com/ do walidacji?
 const Kontakt = () => {
   const [state, handleSubmit] = useForm("xbjwzjbj");
   if (state.succeeded) {
-    return <p>Wiadomość została wysłana!</p>;
+    return (
+      <MainLayout>
+        <Container>
+          <p>Wiadomość została wysłana!</p>
+          <Link passHref href="/">
+            <a className="seeOffersButton">Wróć do głównej strony</a>
+          </Link>
+        </Container>
+      </MainLayout>
+    );
   }
   return (
     <MainLayout>
@@ -18,23 +31,27 @@ const Kontakt = () => {
         </div>
         <div className="address-and-contactForm">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">E-Mail</label>
-            <input id="email" type="email" name="email" />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
+            <label htmlFor="name">Imię i nazwisko</label>
+            <input id="name" type="text" name="name" required />
+
+            <label htmlFor="phoneNumber">Numer telefonu</label>
+            <input
+              id="phoneNumber"
+              type="phone"
+              name="name"
+              required
+              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
             />
+
             <label htmlFor="message">Wiadomość</label>
             <textarea id="message" name="message" required />
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-            />
-            <button type="submit" disabled={state.submitting}>
-              Wyślij
-            </button>
+            <ValidationError prefix="Message" field="" errors={state.errors} />
+            <Button type="submit" disabled={state.submitting}>
+              {state.submitting ? "Wysyłam..." : "Wyślij"}
+            </Button>
+            <p>
+              <span style={{ color: "red" }}>*</span> - Pole obowiązkowe
+            </p>
           </form>
           <div className="address">
             <Image src={locationIcon} width={85} height={75} />
@@ -56,7 +73,7 @@ const Kontakt = () => {
           style={{ border: 0 }}
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </Container>
     </MainLayout>
@@ -70,14 +87,54 @@ const Container = styled.main`
 
   .address-and-contactForm {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
+      flex-direction: column-reverse;
+    }
   }
-
   form {
     padding: 50px;
     width: 30%;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 4px 34px -4px rgba(0, 0, 0, 0.25);
+    margin: 20px;
+
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
+      width: 100%;
+      margin: 0;
+    }
+
+    input,
+    textarea {
+      border: 0.5px solid rgba(0, 75, 117, 0.3);
+      box-sizing: border-box;
+      filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.35));
+      border-radius: 2px;
+      padding: 10px 0;
+    }
+
+    label {
+      display: flex;
+      padding: 15px 0;
+      color: ${({ theme }) => theme.blue};
+      font-weight: 600;
+      font-size: 14px;
+
+      &:after {
+        content: "*";
+        display: block;
+        color: red;
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      background: ${({ theme }) => theme.blue};
+      color: white;
+      height: 51px;
+      width: 100%;
+    }
   }
 
   .heading {
@@ -91,6 +148,11 @@ const Container = styled.main`
     & > span {
       filter: invert(45%) sepia(93%) saturate(1242%) hue-rotate(191deg)
         brightness(89%) contrast(99%);
+    }
+
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
+      width: 100%;
+      text-align: center;
     }
   }
 `;

@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Row = styled.div`
   display: flex;
   border-bottom: 1px solid #0000001c;
-  align-items: center;
+  align-items: flex-start;
 
   @media screen and (max-width: 790px) {
     margin-bottom: 20px;
