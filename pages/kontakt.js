@@ -1,58 +1,74 @@
 import MainLayout from "../domains/shared/components/Layouts/MainLayout";
 import styled from "styled-components";
-import { useForm, ValidationError } from "@formspree/react";
+import { useForm } from "@formspree/react";
 import Image from "next/image";
 import locationIcon from "../public/images/icons/location.svg";
-import Link from "next/link";
 import Button from "../domains/shared/components/Button/Button";
 import DESKTOP_MEDIA_QUERY from "../domains/constants/screenSize";
+import NameField from "../domains/contactPage/NameField";
+import Formsy from "formsy-react";
+import ThankYouFragment from "../domains/contactPage/ThankYouFragment";
+import { useState } from "react";
+import PhoneField from "../domains/contactPage/PhoneField";
+import MessageField from "../domains/contactPage/MessageField";
 
-//moze lepiej uzyc https://react-hook-form.com/ do walidacji?
 const Kontakt = () => {
   const [state, handleSubmit] = useForm("xbjwzjbj");
+  const [shouldDisplayErrors, setShouldDisplayErrors] = useState(false);
+
   if (state.succeeded) {
-    return (
-      <MainLayout>
-        <Container>
-          <p>Wiadomość została wysłana!</p>
-          <Link passHref href="/">
-            <a className="seeOffersButton">Wróć do głównej strony</a>
-          </Link>
-        </Container>
-      </MainLayout>
-    );
+    return <ThankYouFragment />;
   }
+
   return (
     <MainLayout>
-      <Container className="globalMargin">
+      <ContactPageContainer
+        className="globalMargin"
+        shouldDisplayErrors={shouldDisplayErrors}
+      >
         <div className="heading">
           <h1>Skontaktuj się z nami</h1>
           <p>Odpowiadamy w ciągu 24H</p>
         </div>
         <div className="address-and-contactForm">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Imię i nazwisko</label>
-            <input id="name" type="text" name="name" required />
-
-            <label htmlFor="phoneNumber">Numer telefonu</label>
-            <input
-              id="phoneNumber"
-              type="phone"
+          <Formsy onValidSubmit={handleSubmit}>
+            <NameField
               name="name"
+              validations="isWords"
+              validationError="Wpisz prawidłowo imię i nazwisko"
               required
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              shouldDisplayErrors={shouldDisplayErrors}
             />
 
-            <label htmlFor="message">Wiadomość</label>
-            <textarea id="message" name="message" required />
-            <ValidationError prefix="Message" field="" errors={state.errors} />
-            <Button type="submit" disabled={state.submitting}>
+            <PhoneField
+              name="phone"
+              validations={{
+                matchRegexp: /[0-9]{3}[0-9]{3}[0-9]{3}/,
+              }}
+              validationError="Wprowadź prawidłowy numer (bez +48)"
+              required
+              shouldDisplayErrors={shouldDisplayErrors}
+            />
+            <MessageField
+              name="message"
+              validations="minLength:5"
+              validationError="Wprowadź minimum 5 znaków"
+              required
+              shouldDisplayErrors={shouldDisplayErrors}
+            />
+
+            <Button
+              onClick={() => {
+                setShouldDisplayErrors(true);
+              }}
+              type="submit"
+            >
               {state.submitting ? "Wysyłam..." : "Wyślij"}
             </Button>
             <p>
               <span style={{ color: "red" }}>*</span> - Pole obowiązkowe
             </p>
-          </form>
+          </Formsy>
           <div className="address">
             <div className="address-and-icon">
               <Image src={locationIcon} width={85} height={75} />
@@ -66,18 +82,18 @@ const Kontakt = () => {
             </div>
             <p>
               Jeśli interesuje Cię konkretna oferta wpisz ją w
-              <b> tytule wiadomości</b>. Np ‘kontakt w sprawie Altanki A1’
+              <b> tytule wiadomości</b>. Np ‘kontakt w sprawie Altanki A1’.
             </p>
           </div>
         </div>
-      </Container>
+      </ContactPageContainer>
 
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1277552.7381593683!2d16.70488414052378!3d51.28867184884486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710b1b73e1ef905%3A0xc6b8818942153c30!2sAltany%20Karo%C5%84!5e0!3m2!1spl!2spl!4v1649505902215!5m2!1spl!2spl"
         width="100%"
         height="450"
         style={{ border: 0 }}
-        allowfullscreen=""
+        allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
@@ -87,7 +103,7 @@ const Kontakt = () => {
 
 export default Kontakt;
 
-const Container = styled.main`
+export const ContactPageContainer = styled.main`
   padding-top: 150px;
 
   .address-and-contactForm {
@@ -108,6 +124,7 @@ const Container = styled.main`
     @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       width: 100%;
       margin: 0;
+      padding: 10px;
     }
 
     input,
@@ -118,6 +135,7 @@ const Container = styled.main`
       border-radius: 2px;
       padding: 10px 0;
       font-size: 18px;
+      width: 100%;
     }
 
     label {
@@ -140,6 +158,12 @@ const Container = styled.main`
       color: white;
       height: 51px;
       width: 100%;
+
+      &:hover {
+        transform: scale(1.02);
+        cursor: pointer;
+        border: 1px solid gold;
+      }
     }
   }
 

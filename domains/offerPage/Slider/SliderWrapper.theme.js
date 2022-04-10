@@ -2,8 +2,6 @@ import styled from "styled-components";
 import DESKTOP_MEDIA_QUERY from "../../constants/screenSize";
 
 const SliderWrapper = styled.div`
-  width: 80%;
-
   & > a {
     text-decoration: none;
     color: ${({ theme }) => theme.blue};
@@ -12,10 +10,6 @@ const SliderWrapper = styled.div`
       content: "\\25c4";
       font-size: 30px;
     }
-  }
-
-  @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
-    width: 100%;
   }
 
   img {
