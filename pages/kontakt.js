@@ -24,7 +24,7 @@ const Kontakt = () => {
   }
   return (
     <MainLayout>
-      <Container>
+      <Container className="globalMargin">
         <div className="heading">
           <h1>Skontaktuj się z nami</h1>
           <p>Odpowiadamy w ciągu 24H</p>
@@ -54,28 +54,33 @@ const Kontakt = () => {
             </p>
           </form>
           <div className="address">
-            <Image src={locationIcon} width={85} height={75} />
-
-            <p>Znajdujemy się w:</p>
-            <p>Stary Broniszew 42-231</p>
-            <p>ul. Tartakowa 10 Województwo Śląskie</p>
+            <div className="address-and-icon">
+              <Image src={locationIcon} width={85} height={75} />
+              <p>
+                <b>Stary Broniszew 42-231</b>
+                <br />
+                ul. Tartakowa 10
+                <br />
+                Województwo Śląskie
+              </p>
+            </div>
             <p>
               Jeśli interesuje Cię konkretna oferta wpisz ją w
               <b> tytule wiadomości</b>. Np ‘kontakt w sprawie Altanki A1’
             </p>
           </div>
         </div>
-
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1277552.7381593683!2d16.70488414052378!3d51.28867184884486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710b1b73e1ef905%3A0xc6b8818942153c30!2sAltany%20Karo%C5%84!5e0!3m2!1spl!2spl!4v1649505902215!5m2!1spl!2spl"
-          width="100%"
-          height="450"
-          style={{ border: 0 }}
-          allowfullscreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
       </Container>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1277552.7381593683!2d16.70488414052378!3d51.28867184884486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710b1b73e1ef905%3A0xc6b8818942153c30!2sAltany%20Karo%C5%84!5e0!3m2!1spl!2spl!4v1649505902215!5m2!1spl!2spl"
+        width="100%"
+        height="450"
+        style={{ border: 0 }}
+        allowfullscreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
     </MainLayout>
   );
 };
@@ -86,6 +91,7 @@ const Container = styled.main`
   padding-top: 150px;
 
   .address-and-contactForm {
+    margin: 50px 0;
     display: flex;
     justify-content: space-around;
     @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
@@ -98,7 +104,6 @@ const Container = styled.main`
     display: flex;
     flex-direction: column;
     box-shadow: 0px 4px 34px -4px rgba(0, 0, 0, 0.25);
-    margin: 20px;
 
     @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       width: 100%;
@@ -145,9 +150,18 @@ const Container = styled.main`
 
   .address {
     width: 30%;
-    & > span {
-      filter: invert(45%) sepia(93%) saturate(1242%) hue-rotate(191deg)
-        brightness(89%) contrast(99%);
+    &-and-icon {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+
+      @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
+        flex-direction: column;
+      }
+
+      & > span {
+        filter: invert(20%);
+      }
     }
 
     @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {

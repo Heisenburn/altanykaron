@@ -208,7 +208,7 @@ const HeroSection = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 10px auto;
+      margin: 20px auto;
     }
     cursor: pointer;
 

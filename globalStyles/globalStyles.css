@@ -60,6 +60,8 @@ p {
     margin: 0 10px !important;
   }
 
-
+  .globalPadding{
+    padding: 0 10px !important;
+  }
 
 }
