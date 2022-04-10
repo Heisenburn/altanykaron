@@ -1,8 +1,8 @@
-* {
+*:focus {outline:none !important}
+
+*, *:before, *:after {
   box-sizing: border-box;
 }
-
-
 
 body {
   margin: 0;

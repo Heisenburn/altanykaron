@@ -7,6 +7,15 @@ import { getBlurDataUrl } from "../domains/shared/Helper/getBlurDataUrl";
 import { GallerySliderVisibilityContext } from "../context/GallerySliderVisibility";
 import { useContext } from "react";
 
+const shuffleArray = (array) => {
+  let shuffled = array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+  return shuffled;
+};
+
 const baseDir = `/images/offers`;
 
 export async function getStaticProps() {
@@ -27,7 +36,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      listOfSrc,
+      listOfSrc: shuffleArray(listOfSrc),
     }, // will be passed to the page component as props
   };
 }
@@ -52,7 +61,7 @@ const Galeria = ({ listOfSrc }) => {
                   height={300}
                   placeholder="blur"
                   blurDataURL={getBlurDataUrl(165, 165, 165)}
-                  quality={30}
+                  quality={50}
                 />
               </PhotoView>
             );

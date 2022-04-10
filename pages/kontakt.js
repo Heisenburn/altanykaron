@@ -117,6 +117,7 @@ const Container = styled.main`
       filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.35));
       border-radius: 2px;
       padding: 10px 0;
+      font-size: 18px;
     }
 
     label {
