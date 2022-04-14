@@ -31,8 +31,6 @@ const Kontakt = () => {
           /* send data to the server */
 
           const body = {
-            name,
-            email,
             recaptchaResponse: token,
           };
 
