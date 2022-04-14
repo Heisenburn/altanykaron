@@ -11,7 +11,6 @@ import ThankYouFragment from "../domains/contactPage/ThankYouFragment";
 import { useState } from "react";
 import PhoneField from "../domains/contactPage/PhoneField";
 import MessageField from "../domains/contactPage/MessageField";
-import ReCAPTCHA from "react-google-recaptcha";
 import Script from "next/script";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
@@ -112,10 +111,6 @@ const Kontakt = () => {
             <p>
               <span style={{ color: "red" }}>*</span> - Pole obowiązkowe
             </p>
-            <ReCAPTCHA
-              size="normal"
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            />
           </Formsy>
           <div className="address">
             <div className="address-and-icon">
