@@ -8,63 +8,63 @@ import DESKTOP_MEDIA_QUERY from "../domains/constants/screenSize";
 import NameField from "../domains/contactPage/NameField";
 import Formsy from "formsy-react";
 import ThankYouFragment from "../domains/contactPage/ThankYouFragment";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PhoneField from "../domains/contactPage/PhoneField";
 import MessageField from "../domains/contactPage/MessageField";
-import Script from "next/script";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const Kontakt = () => {
+  console.log("render");
   const [state, handleSubmit] = useForm("xbjwzjbj");
   const [shouldDisplayErrors, setShouldDisplayErrors] = useState(false);
+  const [isSendButtonDisabled, setisSendButtonDisabled] = useState(false);
+
+  const recaptchaRef = useRef();
 
   if (state.succeeded) {
     return <ThankYouFragment />;
   }
 
-  const handleFormSubmit = (event) => {
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute(SITE_KEY, { action: "submit" })
-        .then(async (token) => {
-          /* send data to the server */
-
-          const body = {
-            name: "test",
-            email: "test",
-            recaptchaResponse: token,
-          };
-
-          try {
-            const response = await fetch("/api/register", {
-              method: "POST",
-              headers: { "Content-Type": "application/json;chaset=utf-8" },
-              body: JSON.stringify(body),
-            });
-            if (response.ok) {
-              handleSubmit();
-            } else {
-              throw new Error(response.statusText);
-            }
-          } catch (error) {
-            console.log({ message: error.message });
-          }
-
-          /* End of the sending data */
-        })
-        .catch((error) => {
-          console.log({ message: error.message });
-        });
-    });
+  const onReCAPTCHAChange = async (captchaCode) => {
+    // If the reCAPTCHA code is null or undefined indicating that
+    // the reCAPTCHA was expired then return early
+    if (!captchaCode) {
+      return;
+    }
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        body: JSON.stringify({ captcha: captchaCode }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        // If the response is ok than show the success alert
+        alert("name registered successfully");
+      } else {
+        // Else throw an error with the message returned
+        // from the API
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      alert(error?.message || "Something went wrong");
+    } finally {
+      // Reset the reCAPTCHA when the request has failed or succeeeded
+      // so that it can be executed again if user submits another name.
+      recaptchaRef.current.reset();
+    }
+  };
+  const handleFormSubmit = () => {
+    // Execute the reCAPTCHA when the form is submitted
+    recaptchaRef.current.execute();
   };
 
   return (
     <MainLayout>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`}
-      />
-
       <ContactPageContainer
         className="globalMargin"
         shouldDisplayErrors={shouldDisplayErrors}
@@ -74,7 +74,21 @@ const Kontakt = () => {
           <p>Odpowiadamy w ciągu 24H</p>
         </div>
         <div className="address-and-contactForm">
-          <Formsy onValidSubmit={handleFormSubmit}>
+          <Formsy
+            preventDefaultSubmit
+            onValidSubmit={(event) => {
+              handleFormSubmit(event);
+            }}
+            onValid={() => {
+              setisSendButtonDisabled(true);
+            }}
+          >
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              size="invisible"
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={onReCAPTCHAChange}
+            />
             <NameField
               name="name"
               validations="isWords"
@@ -105,6 +119,7 @@ const Kontakt = () => {
                 setShouldDisplayErrors(true);
               }}
               type="submit"
+              disabled={isSendButtonDisabled ? false : true}
             >
               {state.submitting ? "Wysyłam..." : "Wyślij"}
             </Button>
