@@ -12,18 +12,36 @@ import { useState, useRef } from "react";
 import PhoneField from "../domains/contactPage/PhoneField";
 import MessageField from "../domains/contactPage/MessageField";
 import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const Kontakt = () => {
-  console.log("render");
-  const [state, handleSubmit] = useForm("xbjwzjbj");
+  // const [controlledName, setControlledName] = useState("");
+  // const [controlledPhoneNumber, setControlledPhoneNumber] = useState("");
+  // const [controlledMessage, setControlledMessage] = useState("");
+
   const [shouldDisplayErrors, setShouldDisplayErrors] = useState(false);
   const [isSendButtonDisabled, setisSendButtonDisabled] = useState(false);
+  const [captchaPassed, setCaptchaPassed] = useState(false);
 
   const recaptchaRef = useRef();
 
-  if (state.succeeded) {
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null,
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg },
+    });
+    if (ok) {
+      form.reset();
+    }
+  };
+
+  if (serverState.status?.succeeded) {
     return <ThankYouFragment />;
   }
 
@@ -42,7 +60,7 @@ const Kontakt = () => {
         },
       });
       if (response.ok) {
-        handleSubmit(); //sending data to formspree
+        setCaptchaPassed(true);
       } else {
         // Else throw an error with the message returned
         // from the API
@@ -57,9 +75,25 @@ const Kontakt = () => {
       recaptchaRef.current.reset();
     }
   };
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (values) => {
     // Execute the reCAPTCHA when the form is submitted
     recaptchaRef.current.execute();
+
+    if (captchaPassed) {
+      setServerState({ submitting: true });
+      const form = HTMLFormElement(values);
+      axios({
+        method: "post",
+        url: "https://formspree.io/xbjwzjbj",
+        data: new FormData(form),
+      })
+        .then((r) => {
+          handleServerResponse(true, "Thanks!", form);
+        })
+        .catch((r) => {
+          handleServerResponse(false, r.response.data.error, form);
+        });
+    }
   };
 
   return (
@@ -77,6 +111,9 @@ const Kontakt = () => {
             preventDefaultSubmit
             onValidSubmit={(event) => {
               handleFormSubmit(event);
+            }}
+            onInvalid={() => {
+              setisSendButtonDisabled(false);
             }}
             onValid={() => {
               setisSendButtonDisabled(true);
@@ -120,7 +157,7 @@ const Kontakt = () => {
               type="submit"
               disabled={isSendButtonDisabled ? false : true}
             >
-              {state.submitting ? "Wysyłam..." : "Wyślij"}
+              {serverState.submitting ? "Wysyłam..." : "Wyślij"}
             </Button>
             <p>
               <span style={{ color: "red" }}>*</span> - Pole obowiązkowe
