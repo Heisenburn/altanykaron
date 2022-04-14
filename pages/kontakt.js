@@ -11,6 +11,10 @@ import ThankYouFragment from "../domains/contactPage/ThankYouFragment";
 import { useState } from "react";
 import PhoneField from "../domains/contactPage/PhoneField";
 import MessageField from "../domains/contactPage/MessageField";
+import ReCAPTCHA from "react-google-recaptcha";
+import Script from "next/script";
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
 
 const Kontakt = () => {
   const [state, handleSubmit] = useForm("xbjwzjbj");
@@ -20,8 +24,48 @@ const Kontakt = () => {
     return <ThankYouFragment />;
   }
 
+  const handleFormSubmit = () => {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(SITE_KEY, { action: "submit" })
+        .then(async (token) => {
+          /* send data to the server */
+
+          const body = {
+            name,
+            email,
+            recaptchaResponse: token,
+          };
+
+          try {
+            const response = await fetch("/api/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json;chaset=utf-8" },
+              body: JSON.stringify(body),
+            });
+            if (response.ok) {
+              handleSubmit();
+            } else {
+              throw new Error(response.statusText);
+            }
+          } catch (error) {
+            console.log({ message: error.message });
+          }
+
+          /* End of the sending data */
+        })
+        .catch((error) => {
+          console.log({ message: error.message });
+        });
+    });
+  };
+
   return (
     <MainLayout>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`}
+      />
+
       <ContactPageContainer
         className="globalMargin"
         shouldDisplayErrors={shouldDisplayErrors}
@@ -31,7 +75,7 @@ const Kontakt = () => {
           <p>Odpowiadamy w ciągu 24H</p>
         </div>
         <div className="address-and-contactForm">
-          <Formsy onValidSubmit={handleSubmit}>
+          <Formsy onValidSubmit={handleFormSubmit}>
             <NameField
               name="name"
               validations="isWords"
@@ -68,6 +112,10 @@ const Kontakt = () => {
             <p>
               <span style={{ color: "red" }}>*</span> - Pole obowiązkowe
             </p>
+            <ReCAPTCHA
+              size="normal"
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            />
           </Formsy>
           <div className="address">
             <div className="address-and-icon">
