@@ -23,7 +23,7 @@ const Kontakt = () => {
     return <ThankYouFragment />;
   }
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (event) => {
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute(SITE_KEY, { action: "submit" })
