@@ -10,8 +10,12 @@ import ThankYouFragment from "../domains/contactPage/ThankYouFragment";
 import { useState } from "react";
 import PhoneField from "../domains/contactPage/PhoneField";
 import MessageField from "../domains/contactPage/MessageField";
+import { useFirstRender } from "../hooks/useFirstRender";
 
 const Kontakt = () => {
+  useFirstRender(() => {
+    window.scrollTo({ top: 0 });
+  });
   const [shouldDisplayErrors, setShouldDisplayErrors] = useState(false);
   const [isSendButtonDisabled, setisSendButtonDisabled] = useState(false);
 

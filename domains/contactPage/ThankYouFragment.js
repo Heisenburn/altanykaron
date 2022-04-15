@@ -3,6 +3,7 @@ import { ContactPageContainer } from "../../pages/kontakt";
 import MainLayout from "../shared/components/Layouts/MainLayout";
 
 const ThankYouFragment = () => {
+  window.scrollTo({ top: 0 });
   return (
     <MainLayout>
       <ContactPageContainer
