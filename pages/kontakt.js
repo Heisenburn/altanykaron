@@ -1,6 +1,5 @@
 import MainLayout from "../domains/shared/components/Layouts/MainLayout";
 import styled from "styled-components";
-import { useForm } from "@formspree/react";
 import Image from "next/image";
 import locationIcon from "../public/images/icons/location.svg";
 import Button from "../domains/shared/components/Button/Button";
@@ -37,7 +36,7 @@ const Kontakt = () => {
       status: { ok, msg },
     });
     if (ok) {
-      form.reset();
+      // form.reset();
     }
   };
 
@@ -79,19 +78,24 @@ const Kontakt = () => {
     // Execute the reCAPTCHA when the form is submitted
     recaptchaRef.current.execute();
 
+    const postData = JSON.stringify(values);
+    const formData = new FormData();
+    formData.append("message", "wojtek");
+
+    console.log(formData);
     if (captchaPassed) {
       setServerState({ submitting: true });
-      const form = HTMLFormElement(values);
       axios({
         method: "post",
         url: "https://formspree.io/xbjwzjbj",
-        data: new FormData(form),
+        data: formData,
       })
         .then((r) => {
-          handleServerResponse(true, "Thanks!", form);
+          handleServerResponse(true, "Thanks!", formData);
         })
         .catch((r) => {
-          handleServerResponse(false, r.response.data.error, form);
+          console.log("r", r);
+          // handleServerResponse(false, r.response.data.error, formData);
         });
     }
   };
@@ -108,6 +112,7 @@ const Kontakt = () => {
         </div>
         <div className="address-and-contactForm">
           <Formsy
+            onChange={() => setShouldDisplayErrors(true)}
             preventDefaultSubmit
             onValidSubmit={(event) => {
               handleFormSubmit(event);
@@ -151,9 +156,6 @@ const Kontakt = () => {
             />
 
             <Button
-              onClick={() => {
-                setShouldDisplayErrors(true);
-              }}
               type="submit"
               disabled={isSendButtonDisabled ? false : true}
             >
