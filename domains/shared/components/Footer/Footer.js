@@ -55,7 +55,7 @@ export default function Footer() {
                       width={20}
                       height={20}
                     />
-                    <p id="phoneNumber">+48 530 534 659</p>
+                    <p id="phoneNumber">+48 508 269 265</p>
                   </div>
                 </div>
               </div>

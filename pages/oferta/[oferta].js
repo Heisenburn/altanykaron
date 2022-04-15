@@ -94,8 +94,12 @@ export default function Page({
             </Link>
             <div>
               <h1 style={{ fontStyle: "oblique" }}>{altanyItem.name}</h1>
-              <p style={{ textAlign: "right" }}>Cena: {altanyItem.price}zł</p>
+              <p id="price">Cena: {altanyItem.price}zł</p>
             </div>
+            <p id="additionalPriceInfo">
+              Cena obejmuje altanę z 4 zabudowanymi narożnikami i 4 wejściami.
+              Zabudowa wejść płatna dodatkowo
+            </p>
           </Heading>
           <ImageGallery
             items={getImageSet()}

@@ -16,7 +16,12 @@ const SliderWrapper = styled.div`
     background-color: #c0c1c926;
   }
 
+  & > div.image-gallery {
+    border: 1px solid #337ab7;
+  }
+
   .fullscreen {
+    border: none;
     .image-gallery-fullscreen-button {
       svg {
         display: none;

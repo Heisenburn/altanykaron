@@ -7,6 +7,35 @@ const Heading = styled.div`
   padding-top: 150px;
   flex-direction: column;
 
+  #additionalPriceInfo {
+    background: #337ab7;
+    color: white;
+    border-top-left-radius: 20px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: right;
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
+      text-align: left;
+      border-radius: 0;
+    }
+  }
+
+  #price {
+    background: #00598b;
+    color: white;
+    border-top-left-radius: 20px;
+    padding: 10px;
+    border-top-right-radius: 20px;
+    text-align: right;
+    width: 270px;
+    text-align: center;
+    @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
+      margin-top: 10px;
+      text-align: left;
+      border: none;
+    }
+  }
+
   & > a {
     text-decoration: none;
     color: ${({ theme }) => theme.blue};
