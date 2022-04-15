@@ -10,9 +10,14 @@ import { useIsDesktop } from "../../hooks/useIsDesktop";
 import Link from "next/link";
 import { forwardRef, useContext } from "react";
 import { ScrollRestorationContext } from "../../context/ScrollRestorationContext";
+import { useFirstRender } from "../../hooks/useFirstRender";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
+  useFirstRender(() => {
+    window.scrollTo({ top: 0 });
+  });
+
   const { oferta } = params;
   const idFromURL = oferta.split("-").pop();
   const fs = require("fs");
