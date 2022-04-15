@@ -14,10 +14,6 @@ import { useFirstRender } from "../../hooks/useFirstRender";
 
 //needed for getting data at build time
 export async function getStaticProps({ params }) {
-  useFirstRender(() => {
-    window.scrollTo({ top: 0 });
-  });
-
   const { oferta } = params;
   const idFromURL = oferta.split("-").pop();
   const fs = require("fs");
@@ -58,6 +54,9 @@ export default function Page({
   availableImagesInDirectory,
   idFromURL,
 }) {
+  useFirstRender(() => {
+    window.scrollTo({ top: 0 });
+  });
   const getImageSet = () => {
     return availableImagesInDirectory.map((src) => {
       return {
