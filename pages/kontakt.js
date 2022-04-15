@@ -7,97 +7,56 @@ import DESKTOP_MEDIA_QUERY from "../domains/constants/screenSize";
 import NameField from "../domains/contactPage/NameField";
 import Formsy from "formsy-react";
 import ThankYouFragment from "../domains/contactPage/ThankYouFragment";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import PhoneField from "../domains/contactPage/PhoneField";
 import MessageField from "../domains/contactPage/MessageField";
-import ReCAPTCHA from "react-google-recaptcha";
-import axios from "axios";
-
-const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const Kontakt = () => {
-  // const [controlledName, setControlledName] = useState("");
-  // const [controlledPhoneNumber, setControlledPhoneNumber] = useState("");
-  // const [controlledMessage, setControlledMessage] = useState("");
-
   const [shouldDisplayErrors, setShouldDisplayErrors] = useState(false);
   const [isSendButtonDisabled, setisSendButtonDisabled] = useState(false);
-  const [captchaPassed, setCaptchaPassed] = useState(false);
 
-  const recaptchaRef = useRef();
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const [serverState, setServerState] = useState({
-    submitting: false,
-    status: null,
-  });
-  const handleServerResponse = (ok, msg, form) => {
-    setServerState({
-      submitting: false,
-      status: { ok, msg },
-    });
-    if (ok) {
-      // form.reset();
-    }
-  };
-
-  if (serverState.status?.succeeded) {
+  if (submitted) {
     return <ThankYouFragment />;
   }
 
-  const onReCAPTCHAChange = async (captchaCode) => {
-    // If the reCAPTCHA code is null or undefined indicating that
-    // the reCAPTCHA was expired then return early
-    if (!captchaCode) {
-      return;
-    }
-    try {
-      const response = await fetch("/api/register", {
+  const handleFormSubmit = (values) => {
+    setLoading(true);
+    setSubmitted(false);
+
+    fetch(
+      "https://public.herotofu.com/v1/c71efb30-bc98-11ec-8bd8-6d49e4d0c791",
+      {
         method: "POST",
-        body: JSON.stringify({ captcha: captchaCode }),
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
-      });
-      if (response.ok) {
-        setCaptchaPassed(true);
-      } else {
-        // Else throw an error with the message returned
-        // from the API
-        const error = await response.json();
-        throw new Error(error.message);
+        body: JSON.stringify(values),
       }
-    } catch (error) {
-      console.error(error?.message || "Something went wrong");
-    } finally {
-      // Reset the reCAPTCHA when the request has failed or succeeeded
-      // so that it can be executed again if user submits another name.
-      recaptchaRef.current.reset();
-    }
-  };
-  const handleFormSubmit = (values) => {
-    // Execute the reCAPTCHA when the form is submitted
-    recaptchaRef.current.execute();
+    )
+      .then((response) => {
+        // Endpoint thinks that it's likely a spam/bot request, you need to change "spam protection mode" to "never" in HeroTofu forms
+        if (response.status === 422) {
+          throw new Error("Are you robot?");
+        }
 
-    const postData = JSON.stringify(values);
-    const formData = new FormData();
-    formData.append("message", "wojtek");
+        if (response.status !== 200) {
+          throw new Error(`${response.statusText} (${response.status})`);
+        }
 
-    console.log(formData);
-    if (captchaPassed) {
-      setServerState({ submitting: true });
-      axios({
-        method: "post",
-        url: "https://formspree.io/xbjwzjbj",
-        data: formData,
+        return response.json();
       })
-        .then((r) => {
-          handleServerResponse(true, "Thanks!", formData);
-        })
-        .catch((r) => {
-          console.log("r", r);
-          // handleServerResponse(false, r.response.data.error, formData);
-        });
-    }
+      .then(() => {
+        setSubmitted(true);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.toString());
+        setLoading(false);
+      });
   };
 
   return (
@@ -124,12 +83,6 @@ const Kontakt = () => {
               setisSendButtonDisabled(true);
             }}
           >
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              size="invisible"
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              onChange={onReCAPTCHAChange}
-            />
             <NameField
               name="name"
               validations="isWords"
@@ -159,7 +112,7 @@ const Kontakt = () => {
               type="submit"
               disabled={isSendButtonDisabled ? false : true}
             >
-              {serverState.submitting ? "Wysyłam..." : "Wyślij"}
+              {loading ? "Wysyłam..." : "Wyślij"}
             </Button>
             <p>
               <span style={{ color: "red" }}>*</span> - Pole obowiązkowe
@@ -196,12 +149,10 @@ const Kontakt = () => {
     </MainLayout>
   );
 };
-
 export default Kontakt;
 
 export const ContactPageContainer = styled.main`
   padding-top: 150px;
-
   .address-and-contactForm {
     margin: 50px 0;
     display: flex;
@@ -216,13 +167,11 @@ export const ContactPageContainer = styled.main`
     display: flex;
     flex-direction: column;
     box-shadow: 0px 4px 34px -4px rgba(0, 0, 0, 0.25);
-
     @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       width: 100%;
       margin: 0;
       padding: 10px;
     }
-
     input,
     textarea {
       border: 0.5px solid rgba(0, 75, 117, 0.3);
@@ -233,28 +182,24 @@ export const ContactPageContainer = styled.main`
       font-size: 18px;
       width: 100%;
     }
-
     label {
       display: flex;
       padding: 15px 0;
       color: ${({ theme }) => theme.blue};
       font-weight: 600;
       font-size: 14px;
-
       &:after {
         content: "*";
         display: block;
         color: red;
       }
     }
-
     button {
       margin-top: 30px;
       background: ${({ theme }) => theme.blue};
       color: white;
       height: 51px;
       width: 100%;
-
       &:hover {
         transform: scale(1.02);
         cursor: pointer;
@@ -262,29 +207,24 @@ export const ContactPageContainer = styled.main`
       }
     }
   }
-
   .heading {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-
   .address {
     width: 30%;
     &-and-icon {
       display: flex;
       flex-direction: row-reverse;
       justify-content: flex-end;
-
       @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
         flex-direction: column;
       }
-
       & > span {
         filter: invert(20%);
       }
     }
-
     @media screen and (max-width: ${DESKTOP_MEDIA_QUERY}) {
       width: 100%;
       text-align: center;
