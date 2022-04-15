@@ -22,7 +22,7 @@ class PhoneField extends React.Component {
     const shouldSpanChangePosition = this.props.shouldDisplayErrors === true;
 
     const spanStyling = shouldSpanChangePosition
-      ? { position: "relative", top: "10px" }
+      ? { position: "relative", top: "5px" }
       : {};
 
     return (
@@ -35,7 +35,9 @@ class PhoneField extends React.Component {
           id="phoneNumber"
         />
         {this.props.shouldDisplayErrors ? (
-          <span style={spanStyling}>{errorMessage}</span>
+          <span className="validationText" style={spanStyling}>
+            {errorMessage}
+          </span>
         ) : null}
       </div>
     );

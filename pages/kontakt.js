@@ -194,6 +194,11 @@ export const ContactPageContainer = styled.main`
         color: red;
       }
     }
+
+    .validationText {
+      color: red;
+      opacity: 0.7;
+    }
     button {
       margin-top: 30px;
       background: ${({ theme }) => theme.blue};

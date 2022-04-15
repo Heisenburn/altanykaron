@@ -7,8 +7,8 @@ const ThankYouFragment = () => {
     <MainLayout>
       <ContactPageContainer
         style={{
-          paddingTop: 500,
-          paddingBottom: 500,
+          paddingTop: "50%",
+          paddingBottom: "50%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
