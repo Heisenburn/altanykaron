@@ -135,7 +135,7 @@ const Kontakt = () => {
             </div>
             <p>
               Jeśli interesuje Cię konkretna oferta wpisz ją w
-              <b> tytule wiadomości</b>. Np ‘kontakt w sprawie Altanki A1’.
+              <b> treści wiadomości</b>. Np ‘kontakt w sprawie Altanki A1’.
             </p>
           </div>
         </div>
