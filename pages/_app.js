@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
     <GallerySliderVisibilityWrapper>
       <ScrollRestorationContextWrapper>
         <Head>
-          <title>Domki i grzybki ogrodowe | altanykaron.pl</title>
+          <title>Altany ogrodowe | altanykaron.pl</title>
         </Head>
         <Component {...pageProps} />
       </ScrollRestorationContextWrapper>
